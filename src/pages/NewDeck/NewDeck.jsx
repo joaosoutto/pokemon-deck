@@ -7,11 +7,10 @@ import AllPokemons from '../../components/AllPokemons';
 import FilteredPokemons from '../../components/FilteredPokemons';
 
 const NewDeck = () => {
-  const {
+  const { deckCards, deckName, addName, saveDeck, myDecks } = useContext(
+    AppContext,
+  );
 
-  } = useContext(AppContext);
-
-  // const [myDeckName, setMyDeckName] = useState('');
   const [filter, setFilter] = useState('');
 
   return (
@@ -24,11 +23,14 @@ const NewDeck = () => {
       <input
         type="text"
         placeholder="My Deck's name"
-        onChange={({ target }) => setMyDeckName(target.value)}
+        onChange={(e) => addName(e.target.value)}
       />
-      <button type="button">
-        Save Deck
-      </button>
+      <Link to="/">
+        <button type="button" onClick={() => saveDeck(deckName, deckCards)}>
+          Save Deck
+        </button>
+      </Link>
+
       {filter ? <FilteredPokemons filter={filter} /> : <AllPokemons />}
     </section>
   );

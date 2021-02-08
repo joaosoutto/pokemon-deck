@@ -1,5 +1,6 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import DeckCard from '../../components/DeckCard';
 import { AppContext } from '../../context/AppContext';
 
 const Home = () => {
@@ -15,11 +16,11 @@ const Home = () => {
         </Link>
       </div>
       <div>
-        {/* {myDecks.length > 1 ? (
-          myDecks.map((deck) => <p>{deck.name}</p>)
+        {myDecks.length > 0 ? (
+          myDecks.map((deck) => <DeckCard id={deck.deckName} deck={deck} />)
         ) : (
           <h1>You dont have decks yet.</h1>
-        )} */}
+        )}
       </div>
     </section>
   );
