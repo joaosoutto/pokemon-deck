@@ -3,18 +3,7 @@ import { Link } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
 
 const Home = () => {
-  const {
-    myDecks,
-    setMyDecks,
-    deck,
-    setDeck,
-    loading,
-    setLoading,
-  } = useContext(AppContext);
-
-  useEffect(() => {
- console.log(myDecks)
-  }, [])
+  const { myDecks } = useContext(AppContext);
 
   return (
     <section>
@@ -25,10 +14,13 @@ const Home = () => {
           <button type="button">New Deck</button>
         </Link>
       </div>
-      <div>{loading && <h1>You dont have decks yet.</h1>}</div>
-      {myDecks.map(deck => (
-        <h1 key={deck.deckName}>{deck.deckName}</h1>
-      ))}
+      <div>
+        {/* {myDecks.length > 1 ? (
+          myDecks.map((deck) => <p>{deck.name}</p>)
+        ) : (
+          <h1>You dont have decks yet.</h1>
+        )} */}
+      </div>
     </section>
   );
 };

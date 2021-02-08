@@ -1,25 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { AppContext } from '../../context/AppContext';
-import PokeCard from '../../components/PokeCard';
+// import PokeCard from '../../components/PokeCard';
 import { Link } from 'react-router-dom';
 import AllPokemons from '../../components/AllPokemons';
+import FilteredPokemons from '../../components/FilteredPokemons';
 
 const NewDeck = () => {
   const {
-    allPokemons,
-    setAllPokemons,
-    loading,
-    setLoading,
-    deck,
-    setDeck,
-    myDecks,
-    setMyDecks,
-    newDeck,
-    setNewDeck,
+
   } = useContext(AppContext);
 
-  const [myDeckName, setMyDeckName] = useState('');
+  // const [myDeckName, setMyDeckName] = useState('');
   const [filter, setFilter] = useState('');
 
   return (
@@ -34,8 +26,10 @@ const NewDeck = () => {
         placeholder="My Deck's name"
         onChange={({ target }) => setMyDeckName(target.value)}
       />
-
-      <AllPokemons filter={filter} />
+      <button type="button">
+        Save Deck
+      </button>
+      {filter ? <FilteredPokemons filter={filter} /> : <AllPokemons />}
     </section>
   );
 };
