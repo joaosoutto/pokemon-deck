@@ -2,30 +2,28 @@ import React, { useContext, useEffect } from 'react';
 import { AppContext } from '../../context/AppContext';
 
 const DeckDetails = (props) => {
-  const { myDecks, loading, setLoading } = useContext(AppContext);
-
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  }, []);
+  const { myDecks } = useContext(AppContext);
 
   let id = props.deck.match.params.id;
   const thisDeck = myDecks.filter((deck) => deck.deckId == id);
   const thisD = thisDeck[0];
 
   const countPokemons = thisD.deckCards.reduce(
-    (acc, cur) => (cur.supertype === 'Pokémon' ? ++acc : acc),
+    (acc, cur) => (cur.pokemon.pokemon.supertype === 'Pokémon' ? ++acc : acc),
     0,
   );
   const countTrainers = thisD.deckCards.reduce(
-    (acc, cur) => (cur.supertype === 'Trainer' ? ++acc : acc),
+    (acc, cur) => (cur.pokemon.pokemon.supertype === 'Trainer' ? ++acc : acc),
     0,
   );
+
   const allCards = countTrainers + countPokemons;
 
-  if (loading) return <h1>Loading deck...</h1>;
+  let countTypes = [];
+  thisD.deckCards.map(({ pokemon }) => countTypes.push(pokemon.pokemon.types));
+  let typesString = countTypes.map(JSON.stringify);
+  let types = new Set(typesString);
+
   return (
     <div>
       <h1>Deck: {thisD.deckName}</h1>
@@ -34,11 +32,7 @@ const DeckDetails = (props) => {
       <h3>Pokemons cards: {countPokemons}</h3>
       <h3>Trainers cards: {countTrainers}</h3>
 
-      {/* {thisD.deckCards.map((card, index) => (
-        <p key={index}>
-          {card.name} - {card.supertype}
-        </p>
-      ))} */}
+      <h4>Number of colors: {types.size}</h4>
     </div>
   );
 };

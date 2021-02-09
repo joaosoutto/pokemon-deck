@@ -16,31 +16,16 @@ const AppProvider = ({ children }) => {
   const [deckCards, setDeckCards] = useState([]);
   const [deckName, setDeckName] = useState('');
 
-  const [valid, setValid] = useState(false);
 
-  const addCard = (name, supertype) => {
-    setDeckCards((cards) => [...cards, { name, supertype }]);
+  const addCard = (pokemon, name, supertype) => {
+    // setDeckCards((cards) => [...cards, { name, supertype }]);
+    setDeckCards((cards) => [...cards, { pokemon }]);
+
   };
 
   const addName = (name) => {
     setDeckName(name);
   };
-
-  // const history = useHistory();
-  // const handleClick = () => {
-  //   if (valid) return history.push('/');
-  // };
-
-  // const validDeck = (name, cards) => {
-  //   if (!name) {
-  //     return alert('ooops! Your deck must have a name!');
-  //   }
-  //   if (cards.length > 60 || cards.length < 3) {
-  //     return alert('ops! Your deck must have between 24 ~ 60 cards!');
-  //   } else {
-  //     setValid(true);
-  //   }
-  // };
 
   const makeNewDeck = () => {
     setDeckName('');
@@ -73,7 +58,7 @@ const AppProvider = ({ children }) => {
     deckName,
     setDeckName,
     myDecks,
-    makeNewDeck
+    makeNewDeck,
   };
 
   return <AppContext.Provider value={context}>{children}</AppContext.Provider>;

@@ -9,15 +9,7 @@ import SearchInput from '../../components/SearchInput';
 import { isValid } from '../../helpers/validate';
 
 const NewDeck = () => {
-  const {
-    deckCards,
-    deckName,
-    addName,
-    saveDeck,
-    myDecks,
-    setDeckCards,
-    setDeckName,
-  } = useContext(AppContext);
+  const { deckCards, deckName, addName, saveDeck } = useContext(AppContext);
 
   const [filter, setFilter] = useState('');
   const [isDisabled, setIsDisabled] = useState(true);
@@ -25,24 +17,6 @@ const NewDeck = () => {
   const [cardsMessage, setCardsMessage] = useState(
     'Your deck must have 24 ~ 60 cards!',
   );
-
-  // const isValid = () => {
-  //   if (!deckName) {
-  //     setNameMessage('Your deck must have a name!');
-  //     setIsDisabled(true);
-  //   }
-  //   if (deckName.length > 0) {
-  //     setNameMessage('');
-  //   }
-  //   if (deckCards.length > 3) {
-  //     setCardsMessage('');
-  //   }
-  //   if (deckName && deckCards.length > 3) {
-  //     setIsDisabled(false);
-  //   }
-  // };
-
-  // isValid
 
   useEffect(() => {
     isValid(
@@ -61,13 +35,7 @@ const NewDeck = () => {
   return (
     <section>
       {nameMessage && <p>{nameMessage}</p>}
-
       {cardsMessage && <p>{cardsMessage}</p>}
-      {/* <input
-        type="search"
-        placeholder="Search Pokemon"
-        onChange={({ target }) => setFilter(target.value)}
-      /> */}
       <SearchInput placeHolder="Search Pokemon" handleChange={handleChange} />
       <input
         type="text"

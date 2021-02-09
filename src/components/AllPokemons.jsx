@@ -14,6 +14,7 @@ const AllPokemons = () => {
     getPokemons().then((response) => {
       setAllPokemons(response.cards);
       setLoading(false);
+      // console.log(response.cards)
     });
   }, []);
 

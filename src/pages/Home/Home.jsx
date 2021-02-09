@@ -4,22 +4,22 @@ import AllDecks from '../../components/AllDecks';
 import DeckCard from '../../components/DeckCard';
 import FilteredDecks from '../../components/FilteredDecks';
 import FilteredPokemons from '../../components/FilteredPokemons';
+import SearchInput from '../../components/SearchInput';
 import { AppContext } from '../../context/AppContext';
 
 const Home = () => {
   const { myDecks, makeNewDeck } = useContext(AppContext);
 
   const [filter, setFilter] = useState('');
+  const handleChange = ({ target }) => {
+    setFilter(target.value);
+  };
 
   return (
     <section>
       <div>
         <h1>My Decks</h1>
-        <input
-          type="text"
-          placeholder="Search deck..."
-          onChange={({ target }) => setFilter(target.value)}
-        />
+        <SearchInput placeHolder="Search Deck..." handleChange={handleChange} />
         <Link to="new-deck">
           <button type="button" onClick={makeNewDeck}>
             New Deck
