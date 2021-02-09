@@ -7,9 +7,18 @@ import AllPokemons from '../../components/AllPokemons';
 import FilteredPokemons from '../../components/FilteredPokemons';
 
 const NewDeck = () => {
-  const { deckCards, deckName, addName, saveDeck, myDecks } = useContext(
-    AppContext,
-  );
+  const {
+    deckCards,
+    deckName,
+    addName,
+    saveDeck,
+    myDecks,
+    setDeckCards,
+  } = useContext(AppContext);
+
+  useEffect(() => {
+    setDeckCards([]);
+  }, []);
 
   const [filter, setFilter] = useState('');
 

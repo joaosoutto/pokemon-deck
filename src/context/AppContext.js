@@ -14,8 +14,9 @@ const AppProvider = ({ children }) => {
   const [deckCards, setDeckCards] = useState([]);
   const [deckName, setDeckName] = useState('');
 
-  const addCard = (name) => {
-    setDeckCards((cards) => [...cards, name]);
+  const addCard = (name, supertype) => {
+    setDeckCards((cards) => [...cards, {name, supertype}]);
+    // console.log(deckCards)
   };
 
   const addName = (name) => {
@@ -23,18 +24,21 @@ const AppProvider = ({ children }) => {
   };
 
   const saveDeck = (name, cards) => {
-    const body = {
+    let deckId =
+      Math.floor(Math.random() * 101) + Math.floor(Math.random() * 11);
+
+    const newDeck = {
+      deckId,
       deckName: name,
       deckCards: cards,
     };
 
-    setNewDeck(body);
     setMyDecks((arr) => [...arr, newDeck]);
   };
 
-  useEffect(() => {
-    console.log(myDecks);
-  }, [myDecks]);
+  // useEffect(() => {
+  //   console.log(myDecks);
+  // }, [myDecks]);
 
   const context = {
     allPokemons,
@@ -46,6 +50,7 @@ const AppProvider = ({ children }) => {
     addName,
     saveDeck,
     deckCards,
+    setDeckCards,
     deckName,
     myDecks,
   };
