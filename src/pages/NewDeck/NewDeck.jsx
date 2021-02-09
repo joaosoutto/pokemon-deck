@@ -5,6 +5,8 @@ import { AppContext } from '../../context/AppContext';
 import { Link } from 'react-router-dom';
 import AllPokemons from '../../components/AllPokemons';
 import FilteredPokemons from '../../components/FilteredPokemons';
+import SearchInput from '../../components/SearchInput';
+import { isValid } from '../../helpers/validate';
 
 const NewDeck = () => {
   const {
@@ -24,35 +26,49 @@ const NewDeck = () => {
     'Your deck must have 24 ~ 60 cards!',
   );
 
-  const isValid = () => {
-    if (!deckName) {
-      setNameMessage('Your deck must have a name!');
-      setIsDisabled(true);
-    }
-    if (deckName.length > 0) {
-      setNameMessage('');
-    }
-    if (deckCards.length > 3) {
-      setCardsMessage('');
-    }
-    if (deckName && deckCards.length > 3) {
-      setIsDisabled(false);
-    }
-  };
+  // const isValid = () => {
+  //   if (!deckName) {
+  //     setNameMessage('Your deck must have a name!');
+  //     setIsDisabled(true);
+  //   }
+  //   if (deckName.length > 0) {
+  //     setNameMessage('');
+  //   }
+  //   if (deckCards.length > 3) {
+  //     setCardsMessage('');
+  //   }
+  //   if (deckName && deckCards.length > 3) {
+  //     setIsDisabled(false);
+  //   }
+  // };
+
+  // isValid
 
   useEffect(() => {
-    isValid();
+    isValid(
+      deckName,
+      deckCards,
+      setNameMessage,
+      setCardsMessage,
+      setIsDisabled,
+    );
   }, [deckName, deckCards]);
+
+  const handleChange = ({ target }) => {
+    setFilter(target.value);
+  };
 
   return (
     <section>
-      {cardsMessage && <p>{cardsMessage}</p>}
       {nameMessage && <p>{nameMessage}</p>}
-      <input
+
+      {cardsMessage && <p>{cardsMessage}</p>}
+      {/* <input
         type="search"
         placeholder="Search Pokemon"
         onChange={({ target }) => setFilter(target.value)}
-      />
+      /> */}
+      <SearchInput placeHolder="Search Pokemon" handleChange={handleChange} />
       <input
         type="text"
         placeholder="My Deck's name"

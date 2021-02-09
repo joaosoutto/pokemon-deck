@@ -1,54 +1,44 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useContext, useEffect } from 'react';
 import { AppContext } from '../../context/AppContext';
 
 const DeckDetails = (props) => {
   const { myDecks, loading, setLoading } = useContext(AppContext);
-  const [deck, setDeck] = useState('');
-
-  // console.log(props.deck.match.params.id)
-
-  // const loadDeck = () => {
-  //   setLoading(true);
-  //   // console.log(myDecks)
-
- 
-
-  //   // console.log(thisDeck[0]);
-  //   // setDeck({...deck, deck: thisDeck[0]});
-  //   // setDeck(thisD)
-  //   // console.log(deck);
-  //   setLoading(false);
-  // };
 
   useEffect(() => {
-    // loadDeck();
-    // setTimeout(() => {
-    //   setLoading(false);
-    //   // console.log(deck);
-    // }, 2000);
-    // let id = props.deck.match.params.id
-    // const thisDeck = myDecks.filter((deck) => deck.deckId == id);
-    // const thisD = thisDeck[0];
-    // console.log(deck)
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
   }, []);
 
-  let id = props.deck.match.params.id
+  let id = props.deck.match.params.id;
   const thisDeck = myDecks.filter((deck) => deck.deckId == id);
   const thisD = thisDeck[0];
-  console.log(thisD)
+
+  const countPokemons = thisD.deckCards.reduce(
+    (acc, cur) => (cur.supertype === 'Pokémon' ? ++acc : acc),
+    0,
+  );
+  const countTrainers = thisD.deckCards.reduce(
+    (acc, cur) => (cur.supertype === 'Trainer' ? ++acc : acc),
+    0,
+  );
+  const allCards = countTrainers + countPokemons;
 
   if (loading) return <h1>Loading deck...</h1>;
-
   return (
     <div>
       <h1>Deck: {thisD.deckName}</h1>
+      <h2>Total cards: {allCards}</h2>
 
-      {thisD.deckCards.map((card) => (
-        <p>
+      <h3>Pokemons cards: {countPokemons}</h3>
+      <h3>Trainers cards: {countTrainers}</h3>
+
+      {/* {thisD.deckCards.map((card, index) => (
+        <p key={index}>
           {card.name} - {card.supertype}
         </p>
-      ))}
+      ))} */}
     </div>
   );
 };

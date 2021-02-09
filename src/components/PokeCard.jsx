@@ -8,7 +8,8 @@ const PokeCard = ({ pokemon }) => {
     <div key={pokemon.id}>
       <img
         alt="Pokemons image"
-        src={pokemon.images.small}
+        src={pokemon.imageUrl}
+        style={{ width: '350px' }}
         onClick={() => addCard(pokemon.name, pokemon.supertype)}
       />
     </div>
