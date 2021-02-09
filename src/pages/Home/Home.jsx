@@ -7,7 +7,7 @@ import FilteredPokemons from '../../components/FilteredPokemons';
 import { AppContext } from '../../context/AppContext';
 
 const Home = () => {
-  const { myDecks } = useContext(AppContext);
+  const { myDecks, makeNewDeck } = useContext(AppContext);
 
   const [filter, setFilter] = useState('');
 
@@ -21,7 +21,9 @@ const Home = () => {
           onChange={({ target }) => setFilter(target.value)}
         />
         <Link to="new-deck">
-          <button type="button">New Deck</button>
+          <button type="button" onClick={makeNewDeck}>
+            New Deck
+          </button>
         </Link>
       </div>
       <div>{filter ? <FilteredDecks filter={filter} /> : <AllDecks />}</div>

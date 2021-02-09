@@ -14,16 +14,40 @@ const NewDeck = () => {
     saveDeck,
     myDecks,
     setDeckCards,
+    setDeckName,
   } = useContext(AppContext);
 
-  useEffect(() => {
-    setDeckCards([]);
-  }, []);
-
   const [filter, setFilter] = useState('');
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [nameMessage, setNameMessage] = useState('Your deck must have a name!');
+  const [cardsMessage, setCardsMessage] = useState(
+    'Your deck must have 24 ~ 60 cards!',
+  );
+
+  const isValid = () => {
+    if (!deckName) {
+      setNameMessage('Your deck must have a name!');
+      setIsDisabled(true);
+    }
+    if (deckName.length > 0) {
+      setNameMessage('');
+    }
+    if (deckCards.length > 3) {
+      setCardsMessage('');
+    }
+    if (deckName && deckCards.length > 3) {
+      setIsDisabled(false);
+    }
+  };
+
+  useEffect(() => {
+    isValid();
+  }, [deckName, deckCards]);
 
   return (
     <section>
+      {cardsMessage && <p>{cardsMessage}</p>}
+      {nameMessage && <p>{nameMessage}</p>}
       <input
         type="search"
         placeholder="Search Pokemon"
@@ -35,7 +59,11 @@ const NewDeck = () => {
         onChange={(e) => addName(e.target.value)}
       />
       <Link to="/">
-        <button type="button" onClick={() => saveDeck(deckName, deckCards)}>
+        <button
+          type="button"
+          disabled={isDisabled}
+          onClick={() => saveDeck(deckName, deckCards)}
+        >
           Save Deck
         </button>
       </Link>

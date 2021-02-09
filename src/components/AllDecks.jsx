@@ -8,7 +8,7 @@ const AllDecks = () => {
   return (
     <div>
       {myDecks.length > 0 ? (
-        myDecks.map((deck) => <DeckCard id={deck.deckName} deck={deck} />)
+        myDecks.map((deck) => <DeckCard id={deck.deckId} deck={deck} />)
       ) : (
         <h1>You dont have decks yet.</h1>
       )}

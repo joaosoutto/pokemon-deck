@@ -1,4 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+
 import PropTypes from 'prop-types';
 
 const AppContext = createContext();
@@ -14,18 +16,39 @@ const AppProvider = ({ children }) => {
   const [deckCards, setDeckCards] = useState([]);
   const [deckName, setDeckName] = useState('');
 
+  const [valid, setValid] = useState(false);
+
   const addCard = (name, supertype) => {
-    setDeckCards((cards) => [...cards, {name, supertype}]);
-    // console.log(deckCards)
+    setDeckCards((cards) => [...cards, { name, supertype }]);
   };
 
   const addName = (name) => {
     setDeckName(name);
   };
 
+  // const history = useHistory();
+  // const handleClick = () => {
+  //   if (valid) return history.push('/');
+  // };
+
+  // const validDeck = (name, cards) => {
+  //   if (!name) {
+  //     return alert('ooops! Your deck must have a name!');
+  //   }
+  //   if (cards.length > 60 || cards.length < 3) {
+  //     return alert('ops! Your deck must have between 24 ~ 60 cards!');
+  //   } else {
+  //     setValid(true);
+  //   }
+  // };
+
+  const makeNewDeck = () => {
+    setDeckName('');
+    setDeckCards([]);
+  };
+
   const saveDeck = (name, cards) => {
-    let deckId =
-      Math.floor(Math.random() * 101) + Math.floor(Math.random() * 11);
+    let deckId = Math.floor(Math.random() * 101 + Math.random() * 101);
 
     const newDeck = {
       deckId,
@@ -35,10 +58,6 @@ const AppProvider = ({ children }) => {
 
     setMyDecks((arr) => [...arr, newDeck]);
   };
-
-  // useEffect(() => {
-  //   console.log(myDecks);
-  // }, [myDecks]);
 
   const context = {
     allPokemons,
@@ -52,7 +71,9 @@ const AppProvider = ({ children }) => {
     deckCards,
     setDeckCards,
     deckName,
+    setDeckName,
     myDecks,
+    makeNewDeck
   };
 
   return <AppContext.Provider value={context}>{children}</AppContext.Provider>;

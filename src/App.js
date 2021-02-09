@@ -11,17 +11,23 @@ import DeckCard from './components/DeckCard';
 import Header from './components/Header';
 
 const App = () => (
-  <AppProvider>
-    <BrowserRouter>
-    <Header />
+  <BrowserRouter>
+    <AppProvider>
+      {/* <BrowserRouter> */}
+      <Header />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/new-deck" component={NewDeck} />
-        <Route exact path="/deck-detail/:id" render={(deck) => <DeckDetails deck={deck} />} />
-=        <Route path="/" component={NotFound} />
+        <Route
+          exact
+          path="/deck-detail/:id"
+          render={(deck) => <DeckDetails deck={deck} />}
+        />
+        = <Route path="/" component={NotFound} />
       </Switch>
-    </BrowserRouter>
-  </AppProvider>
+      {/* </BrowserRouter> */}
+    </AppProvider>
+  </BrowserRouter>
 );
 
 export default App;
