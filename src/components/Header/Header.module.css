@@ -6,7 +6,7 @@ header {
   border-bottom-right-radius: 50px;
   box-shadow: 0px 5px 15px -5px rgb(30, 30, 30);
   display: flex;
-  height: 10rem;
+  height: 7rem;
   justify-content: center;
 }
 
@@ -17,15 +17,15 @@ header {
 
 .logo {
   padding-bottom: 1rem;
-  width: 350px;
+  width: 250px;
 }
 
 .img,
 .img1 {
   animation: bounce 2s ease infinite;
-  margin: 0 3rem;
+  margin: 0 1rem;
   padding-top: 1rem;
-  width: 100px;
+  width: 50px;
 }
 
 .img1 {

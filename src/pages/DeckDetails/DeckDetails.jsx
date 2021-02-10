@@ -32,7 +32,6 @@ const DeckDetails = (props) => {
   const images = thisD.deckCards.map((deck) => (
     <img src={deck.pokemon.pokemon.imageUrl} />
   ));
-  console.log(images);
   const uniqueImages = [
     ...new Map(images.map((item) => [item.props.src, item])).values(),
   ];

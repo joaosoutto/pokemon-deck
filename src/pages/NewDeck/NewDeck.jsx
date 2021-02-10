@@ -45,6 +45,11 @@ const NewDeck = () => {
         </div>
       </div>
       <div className={styles.deck}>
+        <input
+          type="text"
+          placeholder="Deck's name"
+          onChange={(e) => addName(e.target.value)}
+        />
         <Link className={styles.link} to="/">
           <button
             type="button"
@@ -54,11 +59,6 @@ const NewDeck = () => {
             Save Deck
           </button>
         </Link>
-        <input
-          type="text"
-          placeholder="My Deck's name"
-          onChange={(e) => addName(e.target.value)}
-        />
         <div className={styles.warnings}>
           {nameMessage && <p className={styles.warning}>{nameMessage}</p>}
           {cardsMessage && <p className={styles.warning}>{cardsMessage}</p>}

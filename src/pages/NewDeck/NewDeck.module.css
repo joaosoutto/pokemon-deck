@@ -2,7 +2,7 @@
   align-items: flex-start;
   display: flex;
   justify-content: space-between;
-  padding: 4rem 8rem;
+  padding: 5rem 19rem;
 }
 
 .pokemons {
@@ -12,21 +12,29 @@
 
 .pokemons input {
   margin-bottom: 2rem;
-  width: 95%;
+  width: 90%;
 }
 
 .cardsGrid {
-  width: 95%;
-}
-
-.link {
-  padding-right: 2rem;
+  width: 90%;
 }
 
 .deck {
-  align-items: center;
+  align-items: flex-end;
   display: flex;
   flex-direction: column;
+  padding-top: 1rem;
+}
+
+.deck button {
+  width: 400px;
+  margin-bottom: 2rem;
+}
+
+.deck button:disabled {
+  background-color: darkslateblue;
+  color: white;
+  opacity: 0.5;
 }
 
 .deck input {
@@ -35,10 +43,9 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 1.8rem;
   height: 60px;
-  margin: 2rem;
+  margin-bottom: 2rem;
   padding: 1.5rem 0;
-  text-align: center;
-  width: 85%;
+  width: 400px;
 }
 
 .deck input:focus,
@@ -57,7 +64,7 @@
 }
 
 .pokeName {
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-align: right;
 }
 
@@ -65,9 +72,9 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin: 1rem;
+  margin: 0.8rem;
   text-align: left;
-  width: 85%;
+  width: 60%;
 }
 
 .svg {

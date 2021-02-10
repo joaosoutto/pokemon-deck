@@ -7,6 +7,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   justify-content: flex-start;
   margin-top: 3rem;
+  width: 100%;
 }
 
 .noResults {
@@ -15,7 +16,7 @@
   flex-direction: column;
   justify-content: space-around;
   margin-top: 3rem;
-  width: 1120px;
+  width: 1280px;
 }
 
 .noResults img {
@@ -87,7 +88,7 @@
 
 .card h3 {
   font-size: 2rem;
-  -webkit-text-stroke: 4px rgb(46, 105, 179);
+  -webkit-text-stroke: 2px rgb(46, 105, 179);
   color: rgb(255, 204, 1);
   letter-spacing: 0.2rem;
   text-align: center;

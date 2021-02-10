@@ -15,7 +15,7 @@ const AllPokemons = () => {
     getPokemons().then((response) => {
       setAllPokemons(response.cards);
       setLoading(false);
-    });
+    }).catch((err) => console.log(err.message));
   }, []);
 
   if (loading) return <h1 className={styles.loading}>Loading cards...</h1>;
