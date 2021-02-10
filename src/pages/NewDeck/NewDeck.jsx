@@ -1,17 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
-// import axios from 'axios';
 import { AppContext } from '../../context/AppContext';
-// import PokeCard from '../../components/PokeCard';
 import { Link } from 'react-router-dom';
+import { isValid } from '../../helpers/validate';
+
 import AllPokemons from '../../components/Pokemons/AllPokemons';
 import FilteredPokemons from '../../components/Pokemons/FilteredPokemons';
 import SearchInput from '../../components/SearchInput/SearchInput';
-import { isValid } from '../../helpers/validate';
 
 import styles from './NewDeck.module.css';
+import TrashSVG from '../../assets/svg/TrashSVG';
 
 const NewDeck = () => {
-  const { deckCards, deckName, addName, saveDeck } = useContext(AppContext);
+  const { deckCards, deckName, addName, saveDeck, removeCards } = useContext(
+    AppContext,
+  );
 
   const [filter, setFilter] = useState('');
   const [isDisabled, setIsDisabled] = useState(true);
@@ -61,6 +63,16 @@ const NewDeck = () => {
           {nameMessage && <p className={styles.warning}>{nameMessage}</p>}
           {cardsMessage && <p className={styles.warning}>{cardsMessage}</p>}
         </div>
+        {deckCards.map((deck, index) => (
+          <div
+            key={index}
+            onClick={() => removeCards(deck)}
+            className={styles.remove}
+          >
+            <p className={styles.pokeName}>{deck.pokemon.pokemon.name}</p>
+            <TrashSVG className={styles.svg} />
+          </div>
+        ))}
       </div>
     </section>
   );

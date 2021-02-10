@@ -32,7 +32,7 @@ const DeckDetails = (props) => {
   const images = thisD.deckCards.map((deck) => (
     <img src={deck.pokemon.pokemon.imageUrl} />
   ));
-  console.log(images)
+  console.log(images);
   const uniqueImages = [
     ...new Map(images.map((item) => [item.props.src, item])).values(),
   ];
@@ -41,12 +41,10 @@ const DeckDetails = (props) => {
     <section className={`animeLeft ${styles.sec}`}>
       <div className={styles.info}>
         <h1>{thisD.deckName}</h1>
-
         <h3>Pokemons cards: {countPokemons}</h3>
         <h3>Trainers cards: {countTrainers}</h3>
-
-        <h4>Number of colors: {types.size}</h4>
-        <h4>Total cards: {allCards}</h4>
+        <h3>Number of colors: {types.size}</h3>
+        <h3>Total cards: {allCards}</h3>
       </div>
       <div className={styles.miniCards}>
         {uniqueImages.map((deck, index) => (

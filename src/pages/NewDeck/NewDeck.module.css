@@ -1,55 +1,44 @@
 .sec {
-  /* background-color: blue; */
-  padding: 4rem 9rem;
-  display: flex;
   align-items: flex-start;
+  display: flex;
   justify-content: space-between;
+  padding: 4rem 8rem;
 }
 
 .pokemons {
-  /* background-color: brown; */
-  padding-top: 0.6rem;
+  padding-top: 1rem;
   width: 80%;
 }
 
 .pokemons input {
-  width: 95%;
   margin-bottom: 2rem;
+  width: 95%;
 }
 
 .cardsGrid {
-  /* background-color: coral; */
-
   width: 95%;
 }
 
 .link {
-  /* background-color: cadetblue; */
-  /* width: 100%; */
-  /* display: flex;
-    align-items: center;
-    justify-content: center; */
   padding-right: 2rem;
 }
 
 .deck {
-  /* background-color: burlywood; */
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  /* justify-content: center; */
 }
 
 .deck input {
-  margin: 1.5rem;
-  width: 85%;
-  height: 60px;
-  text-align: center;
-  padding: 1.5rem 0;
-  font-size: 1.8rem;
   border: none;
-  font-family: 'Montserrat', sans-serif;
   border-bottom: 3px solid rgb(40, 51, 133);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  height: 60px;
+  margin: 2rem;
+  padding: 1.5rem 0;
+  text-align: center;
+  width: 85%;
 }
 
 .deck input:focus,
@@ -58,12 +47,35 @@
 }
 
 .warnings {
-  /* background-color: cadetblue; */
   width: 85%;
 }
 
 .warning {
-  font-size: 1.2rem;
-  margin-bottom: 0.6rem;
   color: rgb(227, 74, 47);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.pokeName {
+  font-size: 1.2rem;
+  text-align: right;
+}
+
+.remove {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+  text-align: left;
+  width: 85%;
+}
+
+.svg {
+  color: rgb(255, 6, 6);
+  transition: all 0.2s;
+}
+
+.svg:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }

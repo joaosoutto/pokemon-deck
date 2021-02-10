@@ -1,54 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Sriracha&display=swap');
 header {
-  /* background-color: aqua; */
-  height: 10rem;
-  /* position: fixed; */
-  display: flex;
   align-items: center;
-  justify-content: flex-start;
-  background: linear-gradient(
-    to bottom,
-    rgb(40, 51, 133) 60%,
-    rgb(255, 255, 255) 50%,
-    rgb(247, 242, 242) 100%
-  );
+  background: #212531;
+  background: linear-gradient(to right bottom, #2f3441 50%, #212531 50%);
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
   box-shadow: 0px 5px 15px -5px rgb(30, 30, 30);
-  width: 100%;
-  padding-left: 3rem;
+  display: flex;
+  height: 10rem;
+  justify-content: center;
 }
 
 .ball {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
-.ball h1 {
-  -webkit-text-stroke: 5px rgb(53, 106, 188); /* width and color */
-  color: rgb(247, 197, 5);
-  font-size: 6rem;
-  font-family: 'Nerko One', cursive;
+.logo {
+  padding-bottom: 1rem;
+  width: 350px;
 }
 
-.img {
+.img,
+.img1 {
+  animation: bounce 2s ease infinite;
+  margin: 0 3rem;
+  padding-top: 1rem;
   width: 100px;
-  margin-right: 1rem;
-  animation: pulse 4s infinite;
 }
 
-.name {
-  width: 400px;
+.img1 {
+  animation: bounce 2s 1s ease infinite;
 }
 
-@keyframes pulse {
-  0% {
-    transform: rotate(0deg);
+@keyframes bounce {
+  70% {
+    transform: translateY(0%);
   }
-
-  50% {
-    transform: rotate(180deg);
+  80% {
+    transform: translateY(-15%);
   }
-
+  90% {
+    transform: translateY(0%);
+  }
+  95% {
+    transform: translateY(-7%);
+  }
+  97% {
+    transform: translateY(0%);
+  }
+  99% {
+    transform: translateY(-3%);
+  }
   100% {
-    transform: rotate(359deg);
+    transform: translateY(0);
   }
 }

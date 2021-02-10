@@ -3,28 +3,7 @@
 }
 
 .content {
-  /* background-color: yellow; */
-  /* width: 80%; */
+  align-items: flex-end;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
 }
-
-/* .newDec {
-  color: rgb(40, 51, 133);
-  font-size: 1.5rem;
-  width: 250px;
-  border: 3px solid rgb(40, 51, 133);
-  height: 55px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  margin-left: 2rem;
-  border-radius: 20px;
-  transition: all 0.2s;
-}
-
-.newDec:hover {
-  cursor: pointer;
-  background-color: rgb(40, 51, 133);
-  color: #fff;
-} */

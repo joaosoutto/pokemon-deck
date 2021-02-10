@@ -1,11 +1,11 @@
 .search {
-  width: 70%;
+  border: none;
+  border-bottom: 3px solid rgb(40, 51, 133);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
   height: 60px;
   padding: 1.5rem 0;
-  font-size: 1.8rem;
-  border: none;
-  font-family: 'Montserrat', sans-serif;
-  border-bottom: 3px solid rgb(40, 51, 133);
+  width: 70%;
 }
 
 .search:focus,

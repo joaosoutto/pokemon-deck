@@ -1,5 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { createContext, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -16,10 +15,20 @@ const AppProvider = ({ children }) => {
   const [deckCards, setDeckCards] = useState([]);
   const [deckName, setDeckName] = useState('');
 
-
   const addCard = (pokemon) => {
-    setDeckCards((cards) => [...cards, { pokemon }]);
+    const filter = deckCards.filter(
+      (el) => el.pokemon.pokemon.name === pokemon.pokemon.name,
+    );
 
+    if (filter.length === 4) return;
+
+    setDeckCards((cards) => [...cards, { pokemon, quantity: 1 }]);
+  };
+
+  const removeCards = (pokemon) => {
+    const deckIndex = deckCards.indexOf(pokemon);
+    deckCards.splice(deckIndex, 1);
+    setDeckCards((cards) => [...cards]);
   };
 
   const addName = (name) => {
@@ -58,6 +67,7 @@ const AppProvider = ({ children }) => {
     setDeckName,
     myDecks,
     makeNewDeck,
+    removeCards,
   };
 
   return <AppContext.Provider value={context}>{children}</AppContext.Provider>;

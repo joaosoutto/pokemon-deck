@@ -1,0 +1,16 @@
+.sec {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 5rem;
+}
+
+.sec h1 {
+  font-size: 4rem;
+}
+
+.sec img {
+  width: 400px;
+  margin-bottom: 4rem;
+}
