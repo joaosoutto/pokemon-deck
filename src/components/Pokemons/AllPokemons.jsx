@@ -1,8 +1,11 @@
 import React, { useContext, useEffect } from 'react';
-import { AppContext } from '../context/AppContext';
+import { AppContext } from '../../context/AppContext';
 import PokeCard from './PokeCard';
 
-import { getPokemons } from '../services/getPokemons';
+import { getPokemons } from '../../services/getPokemons';
+
+import styles from './Pokemons.module.css';
+
 
 const AllPokemons = () => {
   const { allPokemons, setAllPokemons, loading, setLoading } = useContext(
@@ -18,10 +21,10 @@ const AllPokemons = () => {
     });
   }, []);
 
-  if (loading) return <h1>Loading cards...</h1>;
+  if (loading) return <h1 className={styles.loading}>Loading cards...</h1>;
 
   return (
-    <div>
+    <div className={styles.pokeGrid}>
       {allPokemons.map((pokemon) => (
         <PokeCard pokemon={pokemon} key={pokemon.id} />
       ))}

@@ -3,10 +3,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AppContext } from '../../context/AppContext';
 // import PokeCard from '../../components/PokeCard';
 import { Link } from 'react-router-dom';
-import AllPokemons from '../../components/AllPokemons';
-import FilteredPokemons from '../../components/FilteredPokemons';
+import AllPokemons from '../../components/Pokemons/AllPokemons';
+import FilteredPokemons from '../../components/Pokemons/FilteredPokemons';
 import SearchInput from '../../components/SearchInput/SearchInput';
 import { isValid } from '../../helpers/validate';
+
+import styles from './NewDeck.module.css';
 
 const NewDeck = () => {
   const { deckCards, deckName, addName, saveDeck } = useContext(AppContext);
@@ -33,26 +35,33 @@ const NewDeck = () => {
   };
 
   return (
-    <section>
-      {nameMessage && <p>{nameMessage}</p>}
-      {cardsMessage && <p>{cardsMessage}</p>}
-      <SearchInput placeHolder="Search Pokemon" handleChange={handleChange} />
-      <input
-        type="text"
-        placeholder="My Deck's name"
-        onChange={(e) => addName(e.target.value)}
-      />
-      <Link to="/">
-        <button
-          type="button"
-          disabled={isDisabled}
-          onClick={() => saveDeck(deckName, deckCards)}
-        >
-          Save Deck
-        </button>
-      </Link>
-
-      {filter ? <FilteredPokemons filter={filter} /> : <AllPokemons />}
+    <section className={`animeLeft ${styles.sec}`}>
+      <div className={styles.pokemons}>
+        <SearchInput placeHolder="Search Pokemon" handleChange={handleChange} />
+        <div className={styles.cardsGrid}>
+          {filter ? <FilteredPokemons filter={filter} /> : <AllPokemons />}
+        </div>
+      </div>
+      <div className={styles.deck}>
+        <Link className={styles.link} to="/">
+          <button
+            type="button"
+            disabled={isDisabled}
+            onClick={() => saveDeck(deckName, deckCards)}
+          >
+            Save Deck
+          </button>
+        </Link>
+        <input
+          type="text"
+          placeholder="My Deck's name"
+          onChange={(e) => addName(e.target.value)}
+        />
+        <div className={styles.warnings}>
+          {nameMessage && <p className={styles.warning}>{nameMessage}</p>}
+          {cardsMessage && <p className={styles.warning}>{cardsMessage}</p>}
+        </div>
+      </div>
     </section>
   );
 };

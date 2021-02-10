@@ -1,24 +1,29 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
+import DeckDetails from '../../pages/DeckDetails/DeckDetails';
 
 import styles from './Decks.module.css';
 
-
 const DeckCard = ({ deck }) => {
-  const {myDecks} = useContext(AppContext);
+  const { myDecks } = useContext(AppContext);
 
-  // const lalala = myDecks.map((item) => item.deckId)
-  // console.log(lalala)
-  // console.log(indexOf(lalala))
+  const history = useHistory();
+  const deckIndex = myDecks.indexOf(deck);
+  const removeFromDecks = () => {
+    myDecks.splice(deckIndex, 1);
+    history.push('/');
+  };
 
   return (
-    <Link to={`/deck-detail/${deck.deckId}`}>
-      <div className={styles.card} id={deck.deckId}>
-        <h3>{deck.deckName}</h3>
-        {/* <button>Remove Deck</button> */}
-      </div>
-    </Link>
+    <div className={styles.wrapper}>
+      <Link to={`/deck-detail/${deck.deckId}`}>
+        <div className={styles.card} id={deck.deckId}>
+          <h3>{deck.deckName}</h3>
+        </div>{' '}
+      </Link>
+      <button onClick={removeFromDecks}>Remove Deck</button>
+    </div>
   );
 };
 

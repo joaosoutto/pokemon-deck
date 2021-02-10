@@ -1,0 +1,69 @@
+.sec {
+  /* background-color: blue; */
+  padding: 4rem 9rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.pokemons {
+  /* background-color: brown; */
+  padding-top: 0.6rem;
+  width: 80%;
+}
+
+.pokemons input {
+  width: 95%;
+  margin-bottom: 2rem;
+}
+
+.cardsGrid {
+  /* background-color: coral; */
+
+  width: 95%;
+}
+
+.link {
+  /* background-color: cadetblue; */
+  /* width: 100%; */
+  /* display: flex;
+    align-items: center;
+    justify-content: center; */
+  padding-right: 2rem;
+}
+
+.deck {
+  /* background-color: burlywood; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.deck input {
+  margin: 1.5rem;
+  width: 85%;
+  height: 60px;
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 1.8rem;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  border-bottom: 3px solid rgb(40, 51, 133);
+}
+
+.deck input:focus,
+.deck input:active {
+  outline: none;
+}
+
+.warnings {
+  /* background-color: cadetblue; */
+  width: 85%;
+}
+
+.warning {
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+  color: rgb(227, 74, 47);
+}

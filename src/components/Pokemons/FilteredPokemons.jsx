@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
-import { AppContext } from '../context/AppContext';
+import { AppContext } from '../../context/AppContext';
 import PokeCard from './PokeCard';
+
+import styles from './Pokemons.module.css';
+
 
 const FilteredPokemons = ({ filter }) => {
   const { allPokemons } = useContext(AppContext);
@@ -19,7 +22,7 @@ const FilteredPokemons = ({ filter }) => {
     }
   };
 
-  return <div>{filteredPokemonSearch()}</div>;
+  return <div className={styles.pokeGrid}>{filteredPokemonSearch()}</div>;
 };
 
 export default FilteredPokemons;

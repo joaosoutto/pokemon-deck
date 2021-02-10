@@ -5,11 +5,12 @@ import styles from './DeckDetails.module.css';
 const DeckDetails = (props) => {
   const { myDecks } = useContext(AppContext);
 
+  // Filtering deck by ID from all decks ----------------------------------------
   let id = props.deck.match.params.id;
   const thisDeck = myDecks.filter((deck) => deck.deckId == id);
   const thisD = thisDeck[0];
-  // console.log(thisD)
 
+  // Counting cards -------------------------------------------------------------
   const countPokemons = thisD.deckCards.reduce(
     (acc, cur) => (cur.pokemon.pokemon.supertype === 'Pokémon' ? ++acc : acc),
     0,
@@ -21,21 +22,37 @@ const DeckDetails = (props) => {
 
   const allCards = countTrainers + countPokemons;
 
+  // Counting types -------------------------------------------------------------
   let countTypes = [];
   thisD.deckCards.map(({ pokemon }) => countTypes.push(pokemon.pokemon.types));
   let typesString = countTypes.map(JSON.stringify);
   let types = new Set(typesString);
 
+  // Getting images -------------------------------------------------------------
+  const images = thisD.deckCards.map((deck) => (
+    <img src={deck.pokemon.pokemon.imageUrl} />
+  ));
+  console.log(images)
+  const uniqueImages = [
+    ...new Map(images.map((item) => [item.props.src, item])).values(),
+  ];
+
   return (
     <section className={`animeLeft ${styles.sec}`}>
-      <h1>{thisD.deckName}</h1>
+      <div className={styles.info}>
+        <h1>{thisD.deckName}</h1>
 
-      <h3>Pokemons cards: {countPokemons}</h3>
-      <h3>Trainers cards: {countTrainers}</h3>
+        <h3>Pokemons cards: {countPokemons}</h3>
+        <h3>Trainers cards: {countTrainers}</h3>
 
-      <h4>Number of colors: {types.size}</h4>
-      <h4>Total cards: {allCards}</h4>
-
+        <h4>Number of colors: {types.size}</h4>
+        <h4>Total cards: {allCards}</h4>
+      </div>
+      <div className={styles.miniCards}>
+        {uniqueImages.map((deck, index) => (
+          <img key={index} src={deck.props.src} />
+        ))}
+      </div>
     </section>
   );
 };

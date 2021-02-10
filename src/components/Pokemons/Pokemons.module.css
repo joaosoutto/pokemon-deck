@@ -1,0 +1,23 @@
+.pokeGrid {
+  background-color: cornsilk;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.card {
+  opacity: 0.9;
+  transition: all 0.2s;
+}
+
+.card:hover {
+  opacity: 1;
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+.loading {
+    text-align: center;
+    font-size: 4rem;
+    margin-top: 2rem;
+}

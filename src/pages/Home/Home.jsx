@@ -4,19 +4,23 @@ import { Link } from 'react-router-dom';
 import AllDecks from '../../components/Decks/AllDecks';
 import DeckCard from '../../components/Decks/DeckCard';
 import FilteredDecks from '../../components/Decks/FilteredDecks';
-import FilteredPokemons from '../../components/FilteredPokemons';
+import FilteredPokemons from '../../components/Pokemons/FilteredPokemons';
 import SearchInput from '../../components/SearchInput/SearchInput';
 import { AppContext } from '../../context/AppContext';
 
 const Home = () => {
   const { myDecks, makeNewDeck } = useContext(AppContext);
 
-  console.log(myDecks);
+  // console.log(myDecks);
 
   const [filter, setFilter] = useState('');
   const handleChange = ({ target }) => {
     setFilter(target.value);
   };
+
+  // useEffect(() => {
+
+  // }, [myDecks])
 
   return (
     <section className={`animeLeft ${styles.sec}`}>

@@ -1,13 +1,17 @@
 .sec {
-    margin-top: 2rem;
-    padding: 1rem 8rem;
+    /* margin-top: 2rem; */
+    padding: 2rem 10rem;
     /* background-color: wheat; */
-    background-image: url('../../assets/charizard.png');
+    /* background-image: url('../../assets/charizard.png'); */
     background-repeat: no-repeat;
     /* background-size: cover; */
     min-height: 75vh;
     background-position-x: 830px;
     background-position-y: 40px;
+    display: flex;
+    /* width: 1410px; */
+    justify-content: space-between;
+    align-items: flex-start;
   }
 
   .sec h1 {
@@ -29,4 +33,30 @@
 
   .sec h4 {
       font-size: 2rem;
+      margin-bottom: 1.5rem;
   }
+
+  .info {
+      /* background-color: bisque;; */
+      width: 50%;
+      /* text-align: center; */
+  }
+
+  .miniCards {
+      /* margin-top: 2rem; */
+    /* background-color: aqua; */
+    width: 50%;
+    /* width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 2rem; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    padding-top: 1rem;
+  }
+  
