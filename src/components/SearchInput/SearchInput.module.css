@@ -12,3 +12,10 @@
 .search:active {
   outline: none;
 }
+
+
+/* @media (min-width: 1000px) {
+.search {
+  width: 60%;
+}
+} */

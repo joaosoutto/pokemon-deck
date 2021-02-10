@@ -29,3 +29,23 @@
   grid-template-columns: 1fr 1fr 1fr;
   padding-top: 1rem;
 }
+
+@media (min-width: 1000px) {
+  .sec {
+    padding: 5rem 15rem;
+  }
+
+  .info {
+    width: 40%;
+  }
+
+  .info h1,
+  .info h3 {
+    font-size: 1.5rem;
+    margin: 2.5rem 0;
+  }
+
+  .info h1 {
+    font-size: 4rem;
+  }
+}

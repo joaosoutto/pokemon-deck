@@ -93,3 +93,42 @@
   letter-spacing: 0.2rem;
   text-align: center;
 }
+
+@media (min-width: 1000px) {
+  .noResults {
+    width: 936px;
+  }
+
+  .noResults img {
+    width: 240px;
+  }
+
+  .noResults h3 {
+    font-size: 2rem;
+  }
+
+  .noMatch {
+    font-size: 1.2rem;
+    min-width: 500px;
+  }
+
+  .decks {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .wrapper {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .card {
+    width: 250px;
+    height: 400px;
+    padding: 2rem 0.5rem;
+    border-radius: 25px;
+  }
+}

@@ -27,7 +27,7 @@ const Home = () => {
           </button>
         </Link>
       </div>
-      <div>{filter ? <FilteredDecks filter={filter} /> : <AllDecks />}</div>
+      <div className={styles.test}>{filter ? <FilteredDecks filter={filter} /> : <AllDecks />}</div>
     </section>
   );
 };

@@ -55,3 +55,17 @@ header {
     transform: translateY(0);
   }
 }
+
+@media (min-width: 1000px) {
+  .logo {
+    width: 200px;
+    padding: 0;
+  }
+  .img,
+  .img1 {
+    width: 40px;
+  }
+  header {
+    height: 6rem;
+  }
+}

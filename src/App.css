@@ -61,6 +61,10 @@ button:hover {
   color: #fff;
 }
 
+button:focus {
+  outline: none;
+}
+
 @keyframes animeLeft {
   to {
     opacity: 1;

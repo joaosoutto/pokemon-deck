@@ -86,3 +86,42 @@
   cursor: pointer;
   transform: scale(1.1);
 }
+
+@media (min-width: 1000px) {
+  .sec {
+    padding: 5rem 15rem;
+  }
+
+  .pokemons {
+    width: 60%;
+  }
+
+
+  .cardsGrid {
+    width: 90%;
+  }
+
+  .deck {
+    width: 35%;
+  }
+
+  .deck button {
+    width: 300px;
+  }
+
+  .deck input {
+    width: 100%;
+  }
+
+  .warnings {
+    width: 100%;
+    text-align: center;
+  }
+  .warning {
+    font-size: 1rem;
+  }
+
+  .remove {
+    width: 80%;
+  }
+}

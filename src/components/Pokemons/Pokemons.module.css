@@ -1,5 +1,4 @@
 .pokeGrid {
-  background-color: cornsilk;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 1.5rem;
@@ -25,4 +24,14 @@
 .noMatch {
   color: rgb(227, 74, 47);
   font-size: 1.3rem;
+}
+
+@media (min-width: 1000px) {
+  .pokeGrid {
+    gap: 0.5rem;
+  }
+
+  .noMatch {
+    min-width: 500px;
+  }
 }
