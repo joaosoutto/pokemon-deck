@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../../context/AppContext';
-import DeckCard from './DeckCard';
 
+import DeckCard from './DeckCard';
 import styles from './Decks.module.css';
 
 const FilteredDecks = ({ filter }) => {

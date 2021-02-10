@@ -1,11 +1,9 @@
 import React, { useContext, useEffect } from 'react';
 import { AppContext } from '../../context/AppContext';
-import PokeCard from './PokeCard';
-
 import { getPokemons } from '../../services/getPokemons';
 
+import PokeCard from './PokeCard';
 import styles from './Pokemons.module.css';
-
 
 const AllPokemons = () => {
   const { allPokemons, setAllPokemons, loading, setLoading } = useContext(
@@ -17,7 +15,6 @@ const AllPokemons = () => {
     getPokemons().then((response) => {
       setAllPokemons(response.cards);
       setLoading(false);
-      // console.log(response.cards)
     });
   }, []);
 

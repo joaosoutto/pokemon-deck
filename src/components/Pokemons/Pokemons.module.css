@@ -17,7 +17,12 @@
 }
 
 .loading {
-    text-align: center;
-    font-size: 4rem;
-    margin-top: 2rem;
+  text-align: center;
+  font-size: 4rem;
+  margin-top: 2rem;
+}
+
+.noMatch {
+  color: rgb(227, 74, 47);
+  font-size: 1.3rem;
 }

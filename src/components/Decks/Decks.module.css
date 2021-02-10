@@ -1,26 +1,21 @@
 /* All Decks **************************************************/
 
 .decks {
-  /* background-color: violet; */
-  margin-top: 3rem;
-  display: flex;
   align-items: center;
-  justify-content: flex-start;
-
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 2rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  justify-content: flex-start;
+  margin-top: 3rem;
 }
 
 .noResults {
-  /* background-color: turquoise; */
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
-  /* padding-left: 2rem; */
-  width: 1120px;
   margin-top: 3rem;
+  width: 1120px;
 }
 
 .noResults img {
@@ -35,44 +30,40 @@
 /* Filtered Decks **************************************************/
 
 .noMatch {
-  /* margin-top: 1rem; */
-  font-size: 1.3rem;
-  /* font-weight: 900; */
   color: rgb(227, 74, 47);
+  font-size: 1.3rem;
 }
 
 /* DeckCard **************************************************/
 
 .wrapper {
-  /* background-color: rgb(168, 145, 53); */
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   width: 300px;
 }
 
 .wrapper button {
-  width: 75%;
+  background-color: rgb(227, 74, 47);
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 400;
+  height: 35px;
+  letter-spacing: 0.2rem;
   margin: 0;
   margin-top: 0.5rem;
-  height: 35px;
-  font-size: 1.2rem;
-  border: none;
-  background-color: rgb(227, 74, 47);
-  color: white;
   transition: all 0.3s;
-  font-weight: 400;
-  letter-spacing: 0.2rem;
+  width: 75%;
 }
 
 .wrapper button:hover {
-  cursor: pointer;
   background-color: rgb(164, 25, 1);
+  cursor: pointer;
 }
 
 .card {
-  /* background-color: teal; */
   width: 300px;
   opacity: 0.8;
   background-image: url('../../assets/bg1.jpg');
@@ -85,9 +76,7 @@
   align-items: flex-end;
   justify-content: center;
   padding: 1.5rem 0.5rem;
-  /* margin: 2rem; */
   border-radius: 15px;
-  /* border: 4px solid rgb(4, 6, 81); */
   transition: all 0.2s;
 }
 
@@ -98,9 +87,8 @@
 
 .card h3 {
   font-size: 2rem;
-  -webkit-text-stroke: 1px rgb(53, 106, 188);
-  color: rgb(247, 197, 5);
+  -webkit-text-stroke: 4px rgb(46, 105, 179);
+  color: rgb(255, 204, 1);
   letter-spacing: 0.2rem;
-
   text-align: center;
 }

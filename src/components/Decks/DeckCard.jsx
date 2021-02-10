@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
-import DeckDetails from '../../pages/DeckDetails/DeckDetails';
 
 import styles from './Decks.module.css';
 
@@ -20,7 +19,7 @@ const DeckCard = ({ deck }) => {
       <Link to={`/deck-detail/${deck.deckId}`}>
         <div className={styles.card} id={deck.deckId}>
           <h3>{deck.deckName}</h3>
-        </div>{' '}
+        </div>
       </Link>
       <button onClick={removeFromDecks}>Remove Deck</button>
     </div>
