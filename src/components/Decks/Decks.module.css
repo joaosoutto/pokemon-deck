@@ -4,7 +4,7 @@
   align-items: center;
   display: grid;
   gap: 2rem;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-content: flex-start;
   margin-top: 3rem;
   width: 100%;
@@ -94,7 +94,7 @@
   text-align: center;
 }
 
-@media (min-width: 1000px) {
+@media (max-width: 1500px) {
   .noResults {
     width: 936px;
   }

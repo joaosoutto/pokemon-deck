@@ -56,7 +56,7 @@ header {
   }
 }
 
-@media (min-width: 1000px) {
+@media (max-width: 1500px) {
   .logo {
     width: 200px;
     padding: 0;
