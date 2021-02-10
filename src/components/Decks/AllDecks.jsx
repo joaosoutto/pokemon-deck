@@ -1,6 +1,10 @@
 import React, { useContext } from 'react';
-import { AppContext } from '../context/AppContext';
+import { AppContext } from '../../context/AppContext';
 import DeckCard from './DeckCard';
+
+import styles from './Decks.module.css';
+
+import snorlax from '../../assets/snorlax.png'
 
 const AllDecks = () => {
   const { myDecks } = useContext(AppContext);
@@ -14,15 +18,18 @@ const AllDecks = () => {
     // </div>))}
     // </div>
 
-    <div>
+    <div className={styles.decks}>
       {myDecks.length > 0 ? (
         myDecks.map((deck) => (
-        //   <div 
-            <DeckCard key={deck.deckId} deck={deck} />
-        //   </div>
+          //   <div
+          <DeckCard key={deck.deckId} deck={deck} />
+          //   </div>
         ))
       ) : (
-        <h1>You dont have decks yet.</h1>
+        <div className={styles.noResults}>
+          <img alt="Snorlax sleeping" src={snorlax} />
+          <h3>You dont have decks yet.</h3>
+        </div>
       )}
     </div>
   );

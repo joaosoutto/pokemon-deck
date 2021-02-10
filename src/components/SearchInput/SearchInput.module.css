@@ -1,0 +1,14 @@
+.search {
+  width: 70%;
+  height: 60px;
+  padding: 1.5rem 0;
+  font-size: 1.8rem;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  border-bottom: 3px solid rgb(40, 51, 133);
+}
+
+.search:focus,
+.search:active {
+  outline: none;
+}

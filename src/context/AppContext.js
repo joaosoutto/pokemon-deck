@@ -17,8 +17,7 @@ const AppProvider = ({ children }) => {
   const [deckName, setDeckName] = useState('');
 
 
-  const addCard = (pokemon, name, supertype) => {
-    // setDeckCards((cards) => [...cards, { name, supertype }]);
+  const addCard = (pokemon) => {
     setDeckCards((cards) => [...cards, { pokemon }]);
 
   };

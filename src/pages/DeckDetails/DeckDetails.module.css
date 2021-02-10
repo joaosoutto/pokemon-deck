@@ -1,0 +1,32 @@
+.sec {
+    margin-top: 2rem;
+    padding: 1rem 8rem;
+    /* background-color: wheat; */
+    background-image: url('../../assets/charizard.png');
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    min-height: 75vh;
+    background-position-x: 830px;
+    background-position-y: 40px;
+  }
+
+  .sec h1 {
+      font-size: 6rem;
+      -webkit-text-stroke: 3px rgb(53, 106, 188);
+      color: rgb(247, 197, 5);
+      margin-bottom: 1.5rem;
+  }
+
+  .sec h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+  }
+
+  .sec h3 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+  }
+
+  .sec h4 {
+      font-size: 2rem;
+  }

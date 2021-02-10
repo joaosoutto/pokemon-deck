@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { AppContext } from '../../context/AppContext';
+import styles from './DeckDetails.module.css';
 
 const DeckDetails = (props) => {
   const { myDecks } = useContext(AppContext);
@@ -7,6 +8,7 @@ const DeckDetails = (props) => {
   let id = props.deck.match.params.id;
   const thisDeck = myDecks.filter((deck) => deck.deckId == id);
   const thisD = thisDeck[0];
+  // console.log(thisD)
 
   const countPokemons = thisD.deckCards.reduce(
     (acc, cur) => (cur.pokemon.pokemon.supertype === 'Pokémon' ? ++acc : acc),
@@ -25,15 +27,16 @@ const DeckDetails = (props) => {
   let types = new Set(typesString);
 
   return (
-    <div>
-      <h1>Deck: {thisD.deckName}</h1>
-      <h2>Total cards: {allCards}</h2>
+    <section className={`animeLeft ${styles.sec}`}>
+      <h1>{thisD.deckName}</h1>
 
       <h3>Pokemons cards: {countPokemons}</h3>
       <h3>Trainers cards: {countTrainers}</h3>
 
       <h4>Number of colors: {types.size}</h4>
-    </div>
+      <h4>Total cards: {allCards}</h4>
+
+    </section>
   );
 };
 

@@ -7,8 +7,8 @@ import Home from './pages/Home/Home';
 import NewDeck from './pages/NewDeck/NewDeck';
 import DeckDetails from './pages/DeckDetails/DeckDetails';
 import NotFound from './pages/NotFound/NotFound';
-import DeckCard from './components/DeckCard';
-import Header from './components/Header';
+import DeckCard from './components/Decks/DeckCard';
+import Header from './components/Header/Header';
 
 const App = () => (
   <BrowserRouter>

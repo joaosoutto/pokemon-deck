@@ -5,7 +5,7 @@ import { AppContext } from '../../context/AppContext';
 import { Link } from 'react-router-dom';
 import AllPokemons from '../../components/AllPokemons';
 import FilteredPokemons from '../../components/FilteredPokemons';
-import SearchInput from '../../components/SearchInput';
+import SearchInput from '../../components/SearchInput/SearchInput';
 import { isValid } from '../../helpers/validate';
 
 const NewDeck = () => {

@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
-import { AppContext } from '../context/AppContext';
+import { AppContext } from '../../context/AppContext';
 import DeckCard from './DeckCard';
+
+import styles from './Decks.module.css';
 
 const FilteredDecks = ({ filter }) => {
   const { myDecks } = useContext(AppContext);
@@ -11,7 +13,7 @@ const FilteredDecks = ({ filter }) => {
 
   const filteredDecksSearch = () => {
     if (filteredDecks.length === 0) {
-      return <p>No matchs found!</p>;
+      return <p className={styles.noMatch}>No matchs found!</p>;
     } else {
       return filteredDecks.map((deck) => (
         <DeckCard deck={deck} key={deck.deckId} />
@@ -19,7 +21,7 @@ const FilteredDecks = ({ filter }) => {
     }
   };
 
-  return <div>{filteredDecksSearch()}</div>;
+  return <div className={styles.decks}>{filteredDecksSearch()}</div>;
 };
 
 export default FilteredDecks;

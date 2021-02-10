@@ -1,38 +1,68 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Montserrat:wght@300;500;900&display=swap');
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0px;
+  color: rgb(40, 40, 40);
+  font-family: 'Montserrat', sans-serif;
+  /* padding-top: 2rem; */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+ul,
+li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
 }
 
-.App-link {
-  color: #61dafb;
+img {
+  display: block;
+  max-width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+a {
+  text-decoration: none;
+  color: rgb(40, 40, 40);
+}
+
+.animeLeft {
+  opacity: 0;
+  animation: animeLeft 0.5s forwards;
+}
+
+button {
+  color: rgb(40, 51, 133);
+  font-size: 1.5rem;
+  width: 400px;
+  /* width: 100%; */
+  border: 3px solid rgb(40, 51, 133);
+  height: 75px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  margin-left: 2rem;
+  border-radius: 20px;
+  transition: all 0.2s;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(40, 51, 133);
+  color: #fff;
+}
+
+@keyframes animeLeft {
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: initial;
   }
 }

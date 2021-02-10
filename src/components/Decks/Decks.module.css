@@ -1,0 +1,77 @@
+/* All Decks **************************************************/
+
+.decks {
+  /* background-color: violet; */
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.noResults {
+  /* background-color: turquoise; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* padding-left: 2rem; */
+  width: 1120px;
+}
+
+.noResults img {
+  width: 350px;
+}
+
+.noResults h3 {
+  font-size: 2.5rem;
+  margin-top: 1rem;
+}
+
+/* Filtered Decks **************************************************/
+
+.noMatch {
+  /* margin-top: 1rem; */
+  font-size: 1.3rem;
+  /* font-weight: 900; */
+  color: rgb(227, 74, 47);
+}
+
+/* DeckCard **************************************************/
+
+.card {
+  /* background-color: teal; */
+  /* width: 380px; */
+  opacity: .8;
+  background-image: url('../../assets/bg1.jpg');
+  height: 450px;
+  /* background-size: contain; */
+  background-position-x: right;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 1.5rem 0.5rem;
+  /* margin: 2rem; */
+  border-radius: 15px;
+  border: 4px solid rgb(4, 6, 81);
+  transition: all .2s;
+}
+
+.card:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.card h3 {
+  font-size: 2rem;
+  -webkit-text-stroke: 1px rgb(53, 106, 188);
+  color: rgb(247, 197, 5);
+  letter-spacing: 0.2rem;
+
+  text-align: center;
+}

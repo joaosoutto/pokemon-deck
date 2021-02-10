@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Sriracha&display=swap');
+header {
+  /* background-color: aqua; */
+  height: 10rem;
+  /* position: fixed; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: linear-gradient(
+    to bottom,
+    rgb(40, 51, 133) 60%,
+    rgb(255, 255, 255) 50%,
+    rgb(247, 242, 242) 100%
+  );
+  box-shadow: 0px 5px 15px -5px rgb(30, 30, 30);
+  width: 100%;
+  padding-left: 3rem;
+}
+
+.ball {
+  display: flex;
+  align-items: center;
+}
+
+.ball h1 {
+  -webkit-text-stroke: 5px rgb(53, 106, 188); /* width and color */
+  color: rgb(247, 197, 5);
+  font-size: 6rem;
+  font-family: 'Nerko One', cursive;
+}
+
+.img {
+  width: 100px;
+  margin-right: 1rem;
+  animation: pulse 4s infinite;
+}
+
+.name {
+  width: 400px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(359deg);
+  }
+}
