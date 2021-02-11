@@ -19,3 +19,5 @@ Detalhes do baralho
 
 O usuário consegue ver quantos pokemons e cartas de treinador existem no baralho. (atributo supertype)
 O usuário consegue ver de quantas cores é o baralho. quantos types únicos existem no baralho.
+
+#### https://pokedeckss.herokuapp.com/
