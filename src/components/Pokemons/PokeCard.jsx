@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 import { AppContext } from '../../context/AppContext';
 
@@ -15,6 +16,13 @@ const PokeCard = ({ pokemon }) => {
       onClick={() => addCard({ pokemon })}
     />
   );
+};
+
+PokeCard.propTypes = {
+  pokemon: PropTypes.shape({
+    id: PropTypes.any,
+    imageUrl: PropTypes.string,
+  }),
 };
 
 export default PokeCard;

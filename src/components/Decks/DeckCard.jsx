@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
@@ -21,9 +22,16 @@ const DeckCard = ({ deck }) => {
           <h3>{deck.deckName}</h3>
         </div>
       </Link>
-      <button onClick={removeFromDecks}>Remove Deck</button>
+      <button onClick={removeFromDecks}>Excluir Deck</button>
     </div>
   );
+};
+
+DeckCard.propTypes = {
+  deck: PropTypes.shape({
+    deckId: PropTypes.any,
+    deckName: PropTypes.string,
+  }),
 };
 
 export default DeckCard;

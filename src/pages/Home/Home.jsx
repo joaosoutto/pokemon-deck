@@ -1,16 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
-import { Link } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
 
 import AllDecks from '../../components/Decks/AllDecks';
-import FilteredDecks from '../../components/Decks/FilteredDecks';
 import SearchInput from '../../components/SearchInput/SearchInput';
+import NoDecks from '../../components/NoDecks/NoDecks';
 
 import styles from './Home.module.css';
 
 const Home = () => {
-  const { makeNewDeck } = useContext(AppContext);
+  const { makeNewDeck, myDecks } = useContext(AppContext);
 
   const [filter, setFilter] = useState('');
   const handleChange = ({ target }) => {
@@ -20,14 +19,14 @@ const Home = () => {
   return (
     <section className={`animeLeft ${styles.sec}`}>
       <div className={styles.content}>
-        <SearchInput placeHolder="Search Deck..." handleChange={handleChange} />
-        <Link to="new-deck">
-          <button className={styles.newDec} type="button" onClick={makeNewDeck}>
-            New Deck
-          </button>
-        </Link>
+        <SearchInput placeHolder="Procurar deck..." handleChange={handleChange} />
+        <button type="button" onClick={() => makeNewDeck()}>
+          Novo Deck
+        </button>
       </div>
-      <div className={styles.test}>{filter ? <FilteredDecks filter={filter} /> : <AllDecks />}</div>
+      <div className={styles.decks}>
+        {myDecks.length === 0 ? <NoDecks /> : <AllDecks filter={filter} />}
+      </div>
     </section>
   );
 };

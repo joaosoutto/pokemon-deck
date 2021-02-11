@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { isValid } from '../../helpers/validate';
 
 import AllPokemons from '../../components/Pokemons/AllPokemons';
-import FilteredPokemons from '../../components/Pokemons/FilteredPokemons';
 import SearchInput from '../../components/SearchInput/SearchInput';
 
 import styles from './NewDeck.module.css';
@@ -17,9 +16,9 @@ const NewDeck = () => {
 
   const [filter, setFilter] = useState('');
   const [isDisabled, setIsDisabled] = useState(true);
-  const [nameMessage, setNameMessage] = useState('Your deck must have a name!');
+  const [nameMessage, setNameMessage] = useState('Seu deck deve ter um nome!');
   const [cardsMessage, setCardsMessage] = useState(
-    'Your deck must have 24 ~ 60 cards!',
+    'Seu deck deve ter entre 24 e 60 cartas',
   );
 
   useEffect(() => {
@@ -39,15 +38,18 @@ const NewDeck = () => {
   return (
     <section className={`animeLeft ${styles.sec}`}>
       <div className={styles.pokemons}>
-        <SearchInput placeHolder="Search Pokemon" handleChange={handleChange} />
+        <SearchInput
+          placeHolder="Procurar Pokemon..."
+          handleChange={handleChange}
+        />
         <div className={styles.cardsGrid}>
-          {filter ? <FilteredPokemons filter={filter} /> : <AllPokemons />}
+          {<AllPokemons filter={filter} />}
         </div>
       </div>
       <div className={styles.deck}>
         <input
           type="text"
-          placeholder="Deck's name"
+          placeholder="Nome do Deck"
           onChange={(e) => addName(e.target.value)}
         />
         <Link className={styles.link} to="/">
@@ -56,7 +58,7 @@ const NewDeck = () => {
             disabled={isDisabled}
             onClick={() => saveDeck(deckName, deckCards)}
           >
-            Save Deck
+            Salvar Deck
           </button>
         </Link>
         <div className={styles.warnings}>

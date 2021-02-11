@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { useContext, useEffect } from 'react';
 import { AppContext } from '../../context/AppContext';
 import styles from './DeckDetails.module.css';
@@ -17,6 +18,11 @@ const DeckDetails = (props) => {
   );
   const countTrainers = thisD.deckCards.reduce(
     (acc, cur) => (cur.pokemon.pokemon.supertype === 'Trainer' ? ++acc : acc),
+    0,
+  );
+
+  const countEnergy = thisD.deckCards.reduce(
+    (acc, cur) => (cur.pokemon.pokemon.supertype === 'Energy' ? ++acc : acc),
     0,
   );
 
@@ -40,10 +46,12 @@ const DeckDetails = (props) => {
     <section className={`animeLeft ${styles.sec}`}>
       <div className={styles.info}>
         <h1>{thisD.deckName}</h1>
-        <h3>Pokemons cards: {countPokemons}</h3>
-        <h3>Trainers cards: {countTrainers}</h3>
-        <h3>Number of colors: {types.size}</h3>
-        <h3>Total cards: {allCards}</h3>
+        {countPokemons > 0 && <h3>Cartas de Pokemon: {countPokemons}</h3>}
+        {countTrainers > 0 && <h3>Cartas de Treinador: {countTrainers}</h3>}
+        {countEnergy > 0 && <h3>Cartas de Energia: {countEnergy}</h3>}
+
+        <h3>Número de cores: {types.size}</h3>
+        <h3>Total de cartas: {allCards}</h3>
       </div>
       <div className={styles.miniCards}>
         {uniqueImages.map((deck, index) => (
@@ -52,6 +60,16 @@ const DeckDetails = (props) => {
       </div>
     </section>
   );
+};
+
+DeckDetails.propTypes = {
+  deck: PropTypes.shape({
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        id: PropTypes.any,
+      }),
+    }),
+  }),
 };
 
 export default DeckDetails;

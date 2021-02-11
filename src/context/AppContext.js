@@ -1,10 +1,13 @@
 import React, { createContext, useState } from 'react';
 
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 
 const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
+  const history = useHistory();
+
   // States -------------------------------------------------------
   const [allPokemons, setAllPokemons] = useState([]);
 
@@ -38,6 +41,7 @@ const AppProvider = ({ children }) => {
   const makeNewDeck = () => {
     setDeckName('');
     setDeckCards([]);
+    history.push('/new-deck');
   };
 
   const saveDeck = (name, cards) => {
@@ -51,7 +55,6 @@ const AppProvider = ({ children }) => {
 
     setMyDecks((arr) => [...arr, newDeck]);
   };
-
 
   //Context -------------------------------------------------------------
   const context = {

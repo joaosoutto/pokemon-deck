@@ -1,0 +1,17 @@
+.loading {
+  display: flex;
+  padding-top: 2rem;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.loading img {
+  width: 40%;
+}
+
+.loading h3 {
+  font-size: 2rem;
+  margin-top: 2rem;
+  letter-spacing: .2rem;
+}

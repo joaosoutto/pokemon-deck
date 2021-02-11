@@ -7,6 +7,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-content: flex-start;
   margin-top: 3rem;
+  /* background-color: blue; */
   width: 100%;
 }
 
@@ -26,13 +27,6 @@
 .noResults h3 {
   font-size: 2.5rem;
   margin-top: 1rem;
-}
-
-/* Filtered Decks **************************************************/
-
-.noMatch {
-  color: rgb(227, 74, 47);
-  font-size: 1.3rem;
 }
 
 /* DeckCard **************************************************/
@@ -84,6 +78,7 @@
 .card:hover {
   cursor: pointer;
   opacity: 1;
+  transform: scale(1.02);
 }
 
 .card h3 {

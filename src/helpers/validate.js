@@ -2,11 +2,11 @@ import { isValidElement } from 'react';
 
 export const isValid = (name, cards, nameM, cardsM, state) => {
   if (!name) {
-    nameM('Your deck must have a name!');
+    nameM('Seu deck deve ter um nome!');
     state(true);
   }
   if (cards.length < 24 || cards.length > 60) {
-    cardsM('Your deck must have 24 ~ 60 cards!');
+    cardsM('Seu deck deve ter entre 24 e 60 cartas');
     state(true);
   }
   if (name.length > 0) {
