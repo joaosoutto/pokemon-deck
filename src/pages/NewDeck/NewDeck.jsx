@@ -32,7 +32,9 @@ const NewDeck = () => {
   }, [deckName, deckCards]);
 
   const handleChange = ({ target }) => {
-    setFilter(target.value);
+    setTimeout(() => {
+      setFilter(target.value);
+    }, 1500);
   };
 
   return (

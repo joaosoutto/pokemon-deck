@@ -9,6 +9,7 @@ import DeckDetails from './pages/DeckDetails/DeckDetails';
 import NotFound from './pages/NotFound/NotFound';
 import DeckCard from './components/Decks/DeckCard';
 import Header from './components/Header/Header';
+import DeckEdit from './pages/DeckEdit/DeckEdit';
 
 const App = () => (
   <BrowserRouter>
@@ -23,7 +24,8 @@ const App = () => (
           path="/deck-detail/:id"
           render={(deck) => <DeckDetails deck={deck} />}
         />
-        = <Route path="/" component={NotFound} />
+        {/* <Route exact path="/deck-edit/:id" component={DeckEdit} /> */}
+        <Route path="/" component={NotFound} />
       </Switch>
       {/* </BrowserRouter> */}
     </AppProvider>

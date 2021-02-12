@@ -23,6 +23,7 @@ const DeckCard = ({ deck }) => {
         </div>
       </Link>
       <button onClick={removeFromDecks}>Excluir Deck</button>
+      <Link to={{pathname: `/deck-edit/${deck.deckId}`, deck: {deck}}} >editar</Link>
     </div>
   );
 };

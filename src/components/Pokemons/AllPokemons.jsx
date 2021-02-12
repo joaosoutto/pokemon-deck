@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AppContext } from '../../context/AppContext';
 import { getPokemons } from '../../services/getPokemons';
 import Loading from '../Loading/Loading';
@@ -12,25 +12,31 @@ const AllPokemons = ({ filter }) => {
     AppContext,
   );
 
+  const [filtered, setFiltered] = useState([]);
+
   useEffect(() => {
     setLoading(true);
-    getPokemons()
-      .then((response) => {
-        setAllPokemons(response.cards);
-        setLoading(false);
-      })
-      .catch((err) => console.log(err.message));
+    getPokemons().then((response) => {
+      setAllPokemons(response.cards);
+      setLoading(false);
+    });
   }, []);
 
-  const filteredPokemons = allPokemons.filter((pokemon) =>
-    pokemon.name.toLowerCase().includes(filter.toLocaleLowerCase()),
-  );
+  useEffect(() => {
+    if (filter) {
+      setLoading(true);
+      getPokemons(filter).then((response) => {
+        setFiltered(response.cards);
+        setLoading(false);
+      });
+    }
+  }, [filter]);
 
   const filteredPokemonSearch = () => {
-    if (filteredPokemons.length === 0) {
+    if (filtered.length === 0) {
       return <NoMatchs />;
     } else {
-      return filteredPokemons.map((pokemon) => (
+      return filtered.map((pokemon) => (
         <PokeCard pokemon={pokemon} key={pokemon.id} />
       ));
     }
@@ -40,11 +46,11 @@ const AllPokemons = ({ filter }) => {
 
   return (
     <div className={styles.pokeGrid}>
-      {filter
-        ? filteredPokemonSearch()
-        : allPokemons.map((pokemon, index) => (
+      {!filter
+        ? allPokemons.map((pokemon, index) => (
             <PokeCard pokemon={pokemon} key={index} />
-          ))}
+          ))
+        : filteredPokemonSearch()}
     </div>
   );
 };
