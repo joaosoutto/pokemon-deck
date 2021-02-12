@@ -8,55 +8,87 @@ const DeckDetails = (props) => {
 
   // Filtering deck by ID from all decks ----------------------------------------
   let id = props.deck.match.params.id;
-  const thisDeck = myDecks.filter((deck) => deck.deckId == id);
-  const thisD = thisDeck[0];
+  const currentDeck = myDecks.find((deck) => deck.deckId == id);
 
   // Counting cards -------------------------------------------------------------
-  const countPokemons = thisD.deckCards.reduce(
+  const countPokemons = currentDeck.deckCards.reduce(
     (acc, cur) => (cur.pokemon.pokemon.supertype === 'Pokémon' ? ++acc : acc),
     0,
   );
-  const countTrainers = thisD.deckCards.reduce(
+
+  const countTrainers = currentDeck.deckCards.reduce(
     (acc, cur) => (cur.pokemon.pokemon.supertype === 'Trainer' ? ++acc : acc),
     0,
   );
 
-  const countEnergy = thisD.deckCards.reduce(
+  const countEnergy = currentDeck.deckCards.reduce(
     (acc, cur) => (cur.pokemon.pokemon.supertype === 'Energy' ? ++acc : acc),
     0,
   );
 
-  const allCards = countTrainers + countPokemons;
+  const allCards = countTrainers + countPokemons + countEnergy;
 
   // Counting types -------------------------------------------------------------
   let countTypes = [];
-  thisD.deckCards.map(({ pokemon }) => countTypes.push(pokemon.pokemon.types));
+  currentDeck.deckCards.map(({ pokemon }) =>
+    countTypes.push(pokemon.pokemon.types),
+  );
   let typesString = countTypes.map(JSON.stringify);
   let types = new Set(typesString);
 
+  console.log(currentDeck)
+
   // Getting images -------------------------------------------------------------
-  const images = thisD.deckCards.map((deck) => (
-    <img src={deck.pokemon.pokemon.imageUrl} />
-  ));
-  const uniqueImages = [
-    ...new Map(images.map((item) => [item.props.src, item])).values(),
-  ];
+
+  const uniqueCards = (superType) => {
+    const cards = currentDeck.deckCards.filter(
+      (card) => card.pokemon.pokemon.supertype === `${superType}`,
+    );
+    const images = cards.map((deck, index) => (
+      <img
+        className={styles.cards}
+        key={index}
+        src={deck.pokemon.pokemon.imageUrl}
+        alt="Card Image"
+      />
+    ));
+    const uniqueImages = [
+      ...new Map(images.map((item) => [item.props.src, item])).values(),
+    ];
+    return uniqueImages;
+  };
+
+  const pokeCards = uniqueCards('Pokémon');
+  const trainerCards = uniqueCards('Trainer');
+  const energyCards = uniqueCards('Energy');
 
   return (
     <section className={`animeLeft ${styles.sec}`}>
       <div className={styles.info}>
-        <h1>{thisD.deckName}</h1>
-        {countPokemons > 0 && <h3>Cartas de Pokemon: {countPokemons}</h3>}
-        {countTrainers > 0 && <h3>Cartas de Treinador: {countTrainers}</h3>}
-        {countEnergy > 0 && <h3>Cartas de Energia: {countEnergy}</h3>}
+        <h1>{currentDeck.deckName}</h1>
 
         <h3>Número de cores: {types.size}</h3>
         <h3>Total de cartas: {allCards}</h3>
       </div>
       <div className={styles.miniCards}>
-        {uniqueImages.map((deck, index) => (
-          <img key={index} src={deck.props.src} />
-        ))}
+        {pokeCards.length !== 0 && (
+          <div className={styles.grid}>
+            <h3>Cartas de Pokemon ({countPokemons}):</h3>
+            <div className={styles.cardGrid}>{pokeCards}</div>{' '}
+          </div>
+        )}
+        {trainerCards.length !== 0 && (
+          <div className={styles.grid}>
+            <h3>Cartas de Treinador ({countTrainers}):</h3>
+            <div className={styles.cardGrid}>{trainerCards}</div>{' '}
+          </div>
+        )}
+        {energyCards.length !== 0 && (
+          <div className={styles.grid}>
+            <h3>Cartas de energia ({countEnergy}):</h3>
+            <div className={styles.cardGrid}>{energyCards}</div>
+          </div>
+        )}
       </div>
     </section>
   );
