@@ -14,7 +14,7 @@ describe('Testing NotFound Page', () => {
   test('Testing render text', () => {
     const { getByText } = render(<NotFound />);
 
-    const text = getByText('Page not found');
+    const text = getByText('Página não encontrada');
 
     expect(text).toBeInTheDocument();
   });

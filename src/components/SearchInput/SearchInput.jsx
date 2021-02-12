@@ -6,6 +6,7 @@ const SearchInput = ({ placeHolder, handleChange }) => {
   return (
     <input
       type="search"
+      role="search"
       placeholder={placeHolder}
       onChange={handleChange}
       className={styles.search}
