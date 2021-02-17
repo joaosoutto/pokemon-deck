@@ -69,8 +69,7 @@
 }
 
 .test {
-  /* background-color: cornflowerblue; */
-  width: 400px;
+  width: 95%;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -82,7 +81,6 @@
   margin: 0.8rem;
   text-align: left;
   width: 85%;
-  /* background-color: chocolate; */
 }
 
 .svg {
@@ -103,7 +101,6 @@
   .pokemons {
     width: 60%;
   }
-
 
   .cardsGrid {
     width: 90%;

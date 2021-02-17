@@ -8,15 +8,10 @@ import SearchInput from '../../components/SearchInput/SearchInput';
 import styles from './NewDeck.module.css';
 import TrashSVG from '../../assets/svg/TrashSVG';
 
-const NewDeck = (state) => {
-  const {
-    deckCards,
-    deckName,
-    addName,
-    saveDeck,
-    removeCards,
-    myDecks,
-  } = useContext(AppContext);
+const NewDeck = () => {
+  const { deckCards, deckName, addName, saveDeck, removeCards } = useContext(
+    AppContext,
+  );
 
   const [filter, setFilter] = useState('');
   const [isDisabled, setIsDisabled] = useState(true);
@@ -68,7 +63,7 @@ const NewDeck = (state) => {
           disabled={isDisabled}
           onClick={() => saveDeck(deckName, deckCards)}
         >
-          {state.deck ? 'Editar Deck' : 'Salvar Deck'}
+          Salvar Deck
         </button>
         <div className={styles.warnings}>
           {nameMessage && <p className={styles.warning}>{nameMessage}</p>}

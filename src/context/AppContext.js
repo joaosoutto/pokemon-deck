@@ -40,11 +40,6 @@ const AppProvider = ({ children }) => {
     setDeckCards((cards) => [...cards]);
   };
 
-  const removeCards1 = (pokemon, deck) => {
-    const deckIndex = deck.deckCards.indexOf(pokemon);
-    deck.deckCards.splice(deckIndex, 1);
-    setDeckCards((cards) => [...cards]);
-  };
 
   // Add name to deck-----------------------------------------------
   const addName = (name) => {
@@ -88,7 +83,6 @@ const AppProvider = ({ children }) => {
     myDecks,
     makeNewDeck,
     removeCards,
-    removeCards1
   };
 
   return <AppContext.Provider value={context}>{children}</AppContext.Provider>;

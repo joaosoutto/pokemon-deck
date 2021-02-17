@@ -40,7 +40,7 @@
 }
 
 .btns {
-  width: 90%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -51,10 +51,7 @@
   background-color: rgb(227, 74, 47);
   border: none;
   color: white;
-  font-size: 1.2rem;
-  font-weight: 400;
   height: 40px;
-  letter-spacing: 0.2rem;
   margin: 0;
   transition: all 0.3s;
   width: 30%;
@@ -70,14 +67,10 @@
 
 .edit {
   background-color: rgb(252, 192, 82);
-  width: 100%;
 }
 .edit:hover {
   background-color: rgb(255, 166, 0);
-}
-
-.link {
-  width: 30%;
+  cursor: pointer;
 }
 
 .card {

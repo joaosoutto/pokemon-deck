@@ -8,13 +8,19 @@ import { AppContext } from '../../context/AppContext';
 import styles from './Decks.module.css';
 
 const DeckCard = ({ deck }) => {
-  const { myDecks } = useContext(AppContext);
-
   const history = useHistory();
+  const { myDecks, setDeckCards, setDeckName } = useContext(AppContext);
+
   const deckIndex = myDecks.indexOf(deck);
   const removeFromDecks = () => {
     myDecks.splice(deckIndex, 1);
     history.push('/');
+  };
+
+  const editDeck = (deck) => {
+    setDeckName(deck.deckName);
+    setDeckCards(deck.deckCards);
+    history.push(`/deck-edit/${deck.deckId}`);
   };
 
   return (
@@ -28,15 +34,10 @@ const DeckCard = ({ deck }) => {
         <button className={styles.delete} onClick={removeFromDecks}>
           <TrashSVG />
         </button>
-        <Link
-          className={styles.link}
-          to={{
-            pathname: `/deck-edit/${deck.deckId}`,
-            state: { editing: true },
-          }}
-        >
-          <button className={styles.edit}><EditSVG /></button>
-        </Link>
+
+        <button onClick={() => editDeck(deck)} className={styles.edit}>
+          <EditSVG />
+        </button>
       </div>
     </div>
   );

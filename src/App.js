@@ -7,10 +7,8 @@ import Home from './pages/Home/Home';
 import NewDeck from './pages/NewDeck/NewDeck';
 import DeckDetails from './pages/DeckDetails/DeckDetails';
 import NotFound from './pages/NotFound/NotFound';
-// import DeckCard from './components/Decks/DeckCard';
 import Header from './components/Header/Header';
 import EditDeck from './pages/EditDeck/EditDeck';
-// import DeckEdit from './pages/DeckEdit/DeckEdit';
 
 const App = () => (
   <BrowserRouter>
@@ -27,9 +25,8 @@ const App = () => (
         <Route
           exact
           path="/deck-edit/:id"
-          render={(deck) => <EditDeck deck={deck} editing={true} />}
+          render={(deck) => <EditDeck deck={deck} />}
         />
-
         <Route path="/" component={NotFound} />
       </Switch>
     </AppProvider>
