@@ -10,9 +10,7 @@ const AppProvider = ({ children }) => {
 
   // States -------------------------------------------------------
   const [allPokemons, setAllPokemons] = useState([]);
-
   const [loading, setLoading] = useState(false);
-
   const [myDecks, setMyDecks] = useState([]);
   const [deckCards, setDeckCards] = useState([]);
   const [deckName, setDeckName] = useState('');
@@ -54,6 +52,7 @@ const AppProvider = ({ children }) => {
     };
 
     setMyDecks((arr) => [...arr, newDeck]);
+    history.push('/')
   };
 
   //Context -------------------------------------------------------------

@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AppContext } from '../../context/AppContext';
-import { Link } from 'react-router-dom';
 import { isValid } from '../../helpers/validate';
 
 import AllPokemons from '../../components/Pokemons/AllPokemons';
@@ -39,6 +38,7 @@ const NewDeck = () => {
 
   return (
     <section className={`animeLeft ${styles.sec}`}>
+      {/* Pokemons side-------------------------------------- */}
       <div className={styles.pokemons}>
         <SearchInput
           placeHolder="Procurar Pokemon..."
@@ -48,22 +48,22 @@ const NewDeck = () => {
           {<AllPokemons filter={filter} />}
         </div>
       </div>
+      {/* Pokemons side-------------------------------------- */}
+
+      {/* Decks side----------------------------------------- */}
       <div className={styles.deck}>
         <input
           type="text"
           placeholder="Nome do Deck"
-          value={deckName}
           onChange={(e) => addName(e.target.value)}
         />
-        <Link className={styles.link} to="/">
-          <button
-            type="button"
-            disabled={isDisabled}
-            onClick={() => saveDeck(deckName, deckCards)}
-          >
-            Salvar Deck
-          </button>
-        </Link>
+        <button
+          type="button"
+          disabled={isDisabled}
+          onClick={() => saveDeck(deckName, deckCards)}
+        >
+          Salvar Deck
+        </button>
         <div className={styles.warnings}>
           {nameMessage && <p className={styles.warning}>{nameMessage}</p>}
           {cardsMessage && <p className={styles.warning}>{cardsMessage}</p>}
@@ -81,6 +81,7 @@ const NewDeck = () => {
           ))}
         </div>
       </div>
+      {/* Decks side----------------------------------------- */}
     </section>
   );
 };

@@ -11,22 +11,17 @@ const DeckDetails = (props) => {
   const currentDeck = myDecks.find((deck) => deck.deckId == id);
 
   // Counting cards -------------------------------------------------------------
-  const countPokemons = currentDeck.deckCards.reduce(
-    (acc, cur) => (cur.pokemon.pokemon.supertype === 'Pokémon' ? ++acc : acc),
-    0,
-  );
+  const countCards = (type) => {
+    const count = currentDeck.deckCards.reduce(
+      (acc, cur) => (cur.pokemon.pokemon.supertype === `${type}` ? ++acc : acc),
+      0,
+    );
+    return count;
+  };
 
-  const countTrainers = currentDeck.deckCards.reduce(
-    (acc, cur) => (cur.pokemon.pokemon.supertype === 'Trainer' ? ++acc : acc),
-    0,
-  );
-
-  const countEnergy = currentDeck.deckCards.reduce(
-    (acc, cur) => (cur.pokemon.pokemon.supertype === 'Energy' ? ++acc : acc),
-    0,
-  );
-
-  const allCards = countTrainers + countPokemons + countEnergy;
+  const countPokemons = countCards('Pokémon');
+  const countTrainers = countCards('Trainer');
+  const countEnergy = countCards('Energy');
 
   // Counting types -------------------------------------------------------------
   let countTypes = [];
@@ -76,8 +71,6 @@ const DeckDetails = (props) => {
             />
           ))}
         </div>
-
-        <h3>Total de cartas: {allCards}</h3>
       </div>
       <div className={styles.miniCards}>
         {pokeCards.length !== 0 && (
