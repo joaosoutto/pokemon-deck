@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import EditSVG from '../../assets/svg/EditSVG';
+import TrashSVG from '../../assets/svg/TrashSVG';
 import { AppContext } from '../../context/AppContext';
 
 import styles from './Decks.module.css';
@@ -22,7 +24,20 @@ const DeckCard = ({ deck }) => {
           <h3>{deck.deckName}</h3>
         </div>
       </Link>
-      <button onClick={removeFromDecks}>Excluir Deck</button>
+      <div className={styles.btns}>
+        <button className={styles.delete} onClick={removeFromDecks}>
+          <TrashSVG />
+        </button>
+        <Link
+          className={styles.link}
+          to={{
+            pathname: `/deck-edit/${deck.deckId}`,
+            state: { editing: true },
+          }}
+        >
+          <button className={styles.edit}><EditSVG /></button>
+        </Link>
+      </div>
     </div>
   );
 };

@@ -8,7 +8,7 @@ import SearchInput from '../../components/SearchInput/SearchInput';
 import styles from './NewDeck.module.css';
 import TrashSVG from '../../assets/svg/TrashSVG';
 
-const NewDeck = () => {
+const NewDeck = (state) => {
   const { deckCards, deckName, addName, saveDeck, removeCards } = useContext(
     AppContext,
   );
@@ -55,6 +55,7 @@ const NewDeck = () => {
         <input
           type="text"
           placeholder="Nome do Deck"
+          value={deckName}
           onChange={(e) => addName(e.target.value)}
         />
         <button
@@ -62,7 +63,7 @@ const NewDeck = () => {
           disabled={isDisabled}
           onClick={() => saveDeck(deckName, deckCards)}
         >
-          Salvar Deck
+          {state.deck ? 'Editar Deck' : 'Salvar Deck'}
         </button>
         <div className={styles.warnings}>
           {nameMessage && <p className={styles.warning}>{nameMessage}</p>}

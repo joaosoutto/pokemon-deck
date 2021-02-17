@@ -14,7 +14,6 @@ import Header from './components/Header/Header';
 const App = () => (
   <BrowserRouter>
     <AppProvider>
-      {/* <BrowserRouter> */}
       <Header />
       <Switch>
         <Route exact path="/" component={Home} />
@@ -24,10 +23,14 @@ const App = () => (
           path="/deck-detail/:id"
           render={(deck) => <DeckDetails deck={deck} />}
         />
+        <Route
+          exact
+          path="/deck-edit/:id"
+          render={(deck) => <NewDeck deck={deck} editing={true} />}
+        />
 
         <Route path="/" component={NotFound} />
       </Switch>
-      {/* </BrowserRouter> */}
     </AppProvider>
   </BrowserRouter>
 );

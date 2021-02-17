@@ -63,13 +63,18 @@ const DeckDetails = (props) => {
       <div className={styles.info}>
         <h1>{currentDeck.deckName}</h1>
         <div className={styles.types}>
-          {arr.map((t, index) => (
-            <img
-              className={styles.typeImg}
-              key={index}
-              src={`${process.env.PUBLIC_URL}/assets/${t}.png`}
-            />
-          ))}
+          {arr.map((type, index) => {
+            if (type !== undefined) {
+              return (
+                <img
+                  className={styles.typeImg}
+                  key={index}
+                  src={`${process.env.PUBLIC_URL}/assets/${type}.png`}
+                  alt="card type"
+                />
+              );
+            }
+          })}
         </div>
       </div>
       <div className={styles.miniCards}>
