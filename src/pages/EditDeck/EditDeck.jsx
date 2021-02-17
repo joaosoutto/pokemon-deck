@@ -5,18 +5,15 @@ import { isValid } from '../../helpers/validate';
 import AllPokemons from '../../components/Pokemons/AllPokemons';
 import SearchInput from '../../components/SearchInput/SearchInput';
 
-import styles from './NewDeck.module.css';
+import styles from '../NewDeck/NewDeck.module.css';
 import TrashSVG from '../../assets/svg/TrashSVG';
+import { useHistory } from 'react-router-dom';
 
-const NewDeck = (state) => {
-  const {
-    deckCards,
-    deckName,
-    addName,
-    saveDeck,
-    removeCards,
-    myDecks,
-  } = useContext(AppContext);
+const EditDeck = (state) => {
+  const history = useHistory();
+  const { deckCards, deckName, addName, removeCards, myDecks } = useContext(
+    AppContext,
+  );
 
   const [filter, setFilter] = useState('');
   const [isDisabled, setIsDisabled] = useState(true);
@@ -41,6 +38,16 @@ const NewDeck = (state) => {
     }, 1500);
   };
 
+  let id = state.deck.match.params.id;
+  const currentDeck = myDecks.find((deck) => deck.deckId == id);
+
+  const editDeck = () => {
+    currentDeck.deckName = deckName;
+    currentDeck.deckCards = deckCards;
+
+    history.push('/');
+  };
+
   return (
     <section className={`animeLeft ${styles.sec}`}>
       {/* Pokemons side-------------------------------------- */}
@@ -63,12 +70,8 @@ const NewDeck = (state) => {
           value={deckName}
           onChange={(e) => addName(e.target.value)}
         />
-        <button
-          type="button"
-          disabled={isDisabled}
-          onClick={() => saveDeck(deckName, deckCards)}
-        >
-          {state.deck ? 'Editar Deck' : 'Salvar Deck'}
+        <button type="button" disabled={isDisabled} onClick={editDeck}>
+          Editar Deck
         </button>
         <div className={styles.warnings}>
           {nameMessage && <p className={styles.warning}>{nameMessage}</p>}
@@ -92,4 +95,4 @@ const NewDeck = (state) => {
   );
 };
 
-export default NewDeck;
+export default EditDeck;

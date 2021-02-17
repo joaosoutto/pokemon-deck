@@ -9,6 +9,7 @@ import DeckDetails from './pages/DeckDetails/DeckDetails';
 import NotFound from './pages/NotFound/NotFound';
 // import DeckCard from './components/Decks/DeckCard';
 import Header from './components/Header/Header';
+import EditDeck from './pages/EditDeck/EditDeck';
 // import DeckEdit from './pages/DeckEdit/DeckEdit';
 
 const App = () => (
@@ -26,7 +27,7 @@ const App = () => (
         <Route
           exact
           path="/deck-edit/:id"
-          render={(deck) => <NewDeck deck={deck} editing={true} />}
+          render={(deck) => <EditDeck deck={deck} editing={true} />}
         />
 
         <Route path="/" component={NotFound} />
