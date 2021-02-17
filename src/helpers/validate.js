@@ -1,5 +1,3 @@
-import { isValidElement } from 'react';
-
 export const isValid = (name, cards, nameM, cardsM, state) => {
   if (!name) {
     nameM('Seu deck deve ter um nome!');

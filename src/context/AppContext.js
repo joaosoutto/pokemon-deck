@@ -9,13 +9,20 @@ const AppProvider = ({ children }) => {
   const history = useHistory();
 
   // States -------------------------------------------------------
+  // Get and set all pokemons from API
   const [allPokemons, setAllPokemons] = useState([]);
+  // Loading handle
   const [loading, setLoading] = useState(false);
+  // All decks
   const [myDecks, setMyDecks] = useState([]);
+  // Deck Cards handle
   const [deckCards, setDeckCards] = useState([]);
+  // Deck Name handle
   const [deckName, setDeckName] = useState('');
 
   // Functions -----------------------------------------------------
+
+  // Add card to deck-----------------------------------------------
   const addCard = (pokemon) => {
     const filter = deckCards.filter(
       (el) => el.pokemon.pokemon.name === pokemon.pokemon.name,
@@ -26,22 +33,26 @@ const AppProvider = ({ children }) => {
     setDeckCards((cards) => [...cards, { pokemon, quantity: 1 }]);
   };
 
+  // Remove card from deck------------------------------------------
   const removeCards = (pokemon) => {
     const deckIndex = deckCards.indexOf(pokemon);
     deckCards.splice(deckIndex, 1);
     setDeckCards((cards) => [...cards]);
   };
 
+  // Add name to deck-----------------------------------------------
   const addName = (name) => {
     setDeckName(name);
   };
 
+  // Clear name and cards-------------------------------------------
   const makeNewDeck = () => {
     setDeckName('');
     setDeckCards([]);
     history.push('/new-deck');
   };
 
+  // Save Deck
   const saveDeck = (name, cards) => {
     let deckId = Math.floor(Math.random() * 101 + Math.random() * 101);
 
@@ -52,7 +63,7 @@ const AppProvider = ({ children }) => {
     };
 
     setMyDecks((arr) => [...arr, newDeck]);
-    history.push('/')
+    history.push('/');
   };
 
   //Context -------------------------------------------------------------
