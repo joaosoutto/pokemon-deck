@@ -68,13 +68,21 @@
   text-align: right;
 }
 
+.test {
+  /* background-color: cornflowerblue; */
+  width: 400px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .remove {
   align-items: center;
   display: flex;
   justify-content: space-between;
   margin: 0.8rem;
   text-align: left;
-  width: 60%;
+  width: 85%;
+  /* background-color: chocolate; */
 }
 
 .svg {

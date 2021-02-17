@@ -65,6 +65,19 @@
   width: 100%;
 }
 
+.types {
+  margin: 2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typeImg {
+  width: 50px;
+  margin: 0.5rem;
+}
+
 @media (max-width: 1500px) {
   .sec {
     padding: 5rem 15rem;

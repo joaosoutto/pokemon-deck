@@ -52,6 +52,7 @@ const NewDeck = () => {
         <input
           type="text"
           placeholder="Nome do Deck"
+          value={deckName}
           onChange={(e) => addName(e.target.value)}
         />
         <Link className={styles.link} to="/">
@@ -67,16 +68,18 @@ const NewDeck = () => {
           {nameMessage && <p className={styles.warning}>{nameMessage}</p>}
           {cardsMessage && <p className={styles.warning}>{cardsMessage}</p>}
         </div>
-        {deckCards.map((deck, index) => (
-          <div
-            key={index}
-            onClick={() => removeCards(deck)}
-            className={styles.remove}
-          >
-            <p className={styles.pokeName}>{deck.pokemon.pokemon.name}</p>
-            <TrashSVG className={styles.svg} />
-          </div>
-        ))}
+        <div className={styles.test}>
+          {deckCards.map((deck, index) => (
+            <div
+              key={index}
+              onClick={() => removeCards(deck)}
+              className={styles.remove}
+            >
+              <p className={styles.pokeName}>{deck.pokemon.pokemon.name}</p>
+              <TrashSVG className={styles.svg} />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

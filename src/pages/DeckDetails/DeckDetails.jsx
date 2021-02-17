@@ -33,10 +33,11 @@ const DeckDetails = (props) => {
   currentDeck.deckCards.map(({ pokemon }) =>
     countTypes.push(pokemon.pokemon.types),
   );
-  let typesString = countTypes.map(JSON.stringify);
-  let types = new Set(typesString);
 
-  console.log(currentDeck)
+  let typesInString = countTypes.flat();
+
+  let types = new Set(typesInString);
+  let arr = [...types];
 
   // Getting images -------------------------------------------------------------
 
@@ -66,8 +67,16 @@ const DeckDetails = (props) => {
     <section className={`animeLeft ${styles.sec}`}>
       <div className={styles.info}>
         <h1>{currentDeck.deckName}</h1>
+        <div className={styles.types}>
+          {arr.map((t, index) => (
+            <img
+              className={styles.typeImg}
+              key={index}
+              src={`${process.env.PUBLIC_URL}/assets/${t}.png`}
+            />
+          ))}
+        </div>
 
-        <h3>Número de cores: {types.size}</h3>
         <h3>Total de cartas: {allCards}</h3>
       </div>
       <div className={styles.miniCards}>

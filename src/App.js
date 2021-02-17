@@ -24,7 +24,12 @@ const App = () => (
           path="/deck-detail/:id"
           render={(deck) => <DeckDetails deck={deck} />}
         />
-        {/* <Route exact path="/deck-edit/:id" component={DeckEdit} /> */}
+        <Route
+          exact
+          path="/deck-edit/:id"
+          component={NewDeck}
+          // render={(deck) => <NewDeck deck={deck} />}
+        />
         <Route path="/" component={NotFound} />
       </Switch>
       {/* </BrowserRouter> */}
